@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +47,7 @@
   <link rel="manifest" href="documents/site.webmanifest">
   <title>Inicio - The SoundGarden</title>
 </head>
-
+<body>
 <header>
   <!-- ===============================================
      SALUDO JS PARA LOS USUARIOS DE THE SOUNDGARDEN
@@ -154,7 +155,7 @@ document.head.appendChild(estiloAnimacion);
 
   <div id="menu-config" class="menu-oculto">
     <ul>
-      <li><a href="login.html"> 🗝️ Iniciar Sesión</a></li>
+      <li><a href="Login.html"> 🗝️ Iniciar Sesión</a></li>
       <li><a href="php/administrar.html">📠 Administrar</a></li>
       <li><a href="contacto.html">🧭 Ayuda </a></li>
       <li><a href="cuenta.html">🎯 Mi Cuenta</a></li>
@@ -164,25 +165,28 @@ document.head.appendChild(estiloAnimacion);
 </div>
 
 <script>
-  // Se tiene que esperar a que la pagina nuestra de The SoundGarden se cargue totalmente 
+  // Mensaje de bienvenida con validación defensiva para evitar errores
   document.addEventListener("DOMContentLoaded", function() {
-    // Nosotros mostramos el mensaje con mucho vibers y estilo 
+    if (typeof Swal === "undefined") {
+      console.warn("SweetAlert no está disponible; se omite el modal de bienvenida.");
+      return;
+    }
 
     Swal.fire({
       title: "🎸 ¡Eres Bienvenido a The SoundGarden!",
       text: "💻 Esperamos que puedas disfrutar tu visita a este gran nirvana musical ⛈️ .",
-      icon: "info",        // 
-      confirmButtonText: "¡Vamos allá weon!", // Texto del botón
-      confirmButtonColor: "#ffb300",     // Color dorado tipo rock
-      background: "#1e1e1e",             // Fondo oscuro elegante
-      color: "#ffffff",                  // Texto blanco
+      icon: "info",
+      confirmButtonText: "¡Vamos allá!",
+      confirmButtonColor: "#ffb300",
+      background: "#1e1e1e",
+      color: "#ffffff",
       imageUrl: "gifs/f1.gif",
       imageWidth: 300,
       imageAlt: "Una batería y una guitarra, en un concierto de metal",
 
     backdrop: `
   rgba(0,0,0,0.7)
-  url("gif/vinilo.gif")
+  url("gifs/v1.gif")
   center left
   no-repeat
 `  
@@ -291,25 +295,28 @@ body {
 <script>
   
 // === MENÚ DE CONFIGURACIÓN ===
-const btnConfig = document.getElementById('btn-config');
-const menuConfig = document.getElementById('menu-config');
+document.addEventListener('DOMContentLoaded', () => {
+  const btnConfig = document.getElementById('btn-config');
+  const menuConfig = document.getElementById('menu-config');
 
-btnConfig.addEventListener('click', () => {
-  const visible = menuConfig.classList.toggle('menu-visible');
-  btnConfig.setAttribute('aria-expanded', visible);
-});
+  if (!btnConfig || !menuConfig) return;
 
-// Cierra el menú si se hace clic fuera
-window.addEventListener('click', (e) => {
-  if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
-    menuConfig.classList.remove('menu-visible');
-    btnConfig.setAttribute('aria-expanded', 'false');
-  }
+  btnConfig.addEventListener('click', () => {
+    const visible = menuConfig.classList.toggle('menu-visible');
+    btnConfig.setAttribute('aria-expanded', String(visible));
+  });
+
+  // Cierra el menú si se hace clic fuera
+  window.addEventListener('click', (e) => {
+    if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
+      menuConfig.classList.remove('menu-visible');
+      btnConfig.setAttribute('aria-expanded', 'false');
+    }
+  });
 });
 </script>
 
 </header>
-<body>
 <main id="contenido-principal">
 
 <!-- =========================
@@ -473,7 +480,7 @@ section {
         Entre el pasado analógico y el futuro digital,  
         hay un eco: ese eco es <em>The Soundgarden</em>.
       </p>
-<p class="powered-by">Powered by <span>The SoundGarden Team 🐧 </span></p>
+<p class="powered-by">Desarrollado por <span>The KernelGarden · CUE AVH</span></p>
     </div>
   </div>
 </section>
@@ -1222,7 +1229,7 @@ function recomendarBanda() {
       nombre: "The Strokes",
       descripcion: "Melancolía neoyorquina con guitarras brillantes y ritmo elegante.",
       imagen: "img/thenewabnormal.jpg",
-      enlace: "hhttps://music.youtube.com/watch?v=826mxiKjoP0"
+      enlace: "https://music.youtube.com/watch?v=826mxiKjoP0"
     },
      {
       nombre: "Nirvana",
@@ -1489,7 +1496,7 @@ aceptarBtn.addEventListener("click", () => {
     <div class="columna">
       <h3>Mi Cuenta</h3>
       <ul class="lista-footer">
-        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="Login.html">Iniciar Sesión</a></li>
         <li><a href="Login.html">Registrarse</a></li>
         <li><a href="cuenta.html">Mi Perfil</a></li>
         <li><a href="CerrarLogin.html">Cerrar Sesión</a></li>
@@ -1560,7 +1567,7 @@ aceptarBtn.addEventListener("click", () => {
     </ul>
     <p>© 2025 <strong>The SoundGarden</strong>. Todos los derechos reservados.  
       Diseñado con 💛💙❤️ - desde Armenia, Quindío.</p>
-    <p class="powered-by">Powered by <span>The SoundGarden Team 🐧</span></p>
+    <p class="powered-by">Desarrollado por <span>The KernelGarden · CUE AVH</span></p>
   </div>
   
 <!-- =========================
