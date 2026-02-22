@@ -1731,7 +1731,7 @@ main {
   position: absolute;
   top: 0;
   left: -50%;
-  width: 200%;
+  width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, #ff6600, transparent);
   animation: pulseLine 6s linear infinite;
