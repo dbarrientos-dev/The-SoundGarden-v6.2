@@ -5365,7 +5365,7 @@ body {
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 200%;
+  width: 100%;
   height: 200%;
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
   animation: shine 6s infinite linear;
@@ -5526,7 +5526,7 @@ main h2 {
   position: absolute;
   top: 0;
   left: -50%;
-  width: 200%;
+  width: 100%;
   height: 2px;
   background: linear-gradient(90deg, transparent, #ff6600, transparent);
   animation: pulseLine 6s linear infinite;
