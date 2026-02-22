@@ -7076,3 +7076,74 @@ a:hover {
   white-space: nowrap;
   border-width: 0;
 }
+/* =========================================================
+   CAPA GLOBAL DE ESTILO (BASE GENERAL DEL SITIO)
+   El objetivo es que el look & feel principal (index) prevalezca.
+   ========================================================= */
+
+.pagina-general {
+  background: url('../img/fondonegro.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f4f4f5;
+}
+
+.pagina-general .encabezado-sitio,
+.pagina-general .footer {
+  width: 100%;
+}
+
+/* Unifica secciones principales de contenido con el estilo oscuro del index */
+.pagina-general main,
+.pagina-general section {
+  color: #f4f4f5;
+}
+
+/* Productos: tarjetas en línea visual del index */
+.pagina-general .card {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f4f4f5;
+}
+
+.pagina-general .card-title {
+  color: #ffd700;
+}
+
+.pagina-general .card-text {
+  color: #e0e0e0;
+}
+
+.pagina-general .btn,
+.pagina-general .btn-dark,
+.pagina-general .btn-comprar {
+  background-color: #111;
+  border-color: #d4af37;
+  color: #f4f4f5;
+}
+
+.pagina-general .btn:hover,
+.pagina-general .btn-dark:hover,
+.pagina-general .btn-comprar:hover {
+  background-color: #ff6600;
+  border-color: #ff6600;
+  color: #fff;
+}
+
+/* Encabezados de bloque, filtros y acentos */
+.pagina-general h1,
+.pagina-general h2,
+.pagina-general h3 {
+  color: #ffd700;
+}
+
+.pagina-general .btn-filtro {
+  border-color: #d4af37;
+  color: #d4af37;
+}
+
+.pagina-general .btn-filtro.activo,
+.pagina-general .btn-filtro:hover {
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #111;
+}
