@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  font-family: "Tahoma", "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #0078d7, #0066cc);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+
+/* Ventana principal */
+.window {
+  width: 340px;
+  background: #ece9d8;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #666;
+}
+
+/* Barra de título */
+.title-bar {
+  background: linear-gradient(to right, #003399, #3366cc);
+  color: white;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.title-buttons .btn {
+  background: #c0c0c0;
+  border: 1px solid #333;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-left: 2px;
+  cursor: pointer;
+  color: #111;
+}
+.title-buttons .btn:hover {
+  background: #ffcc00;
+}
+
+/* Cuerpo de la ventana */
+.window-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.icon {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #000080;
+}
+
+p {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.error {
+  background: #ffdddd;
+  color: #c00;
+  border: 1px solid #900;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+/* Inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input {
+  padding: 4px;
+  border: 2px solid #999;
+  outline: none;
+  background: #fff;
+}
+input:focus {
+  border-color: #0000cc;
+}
+
+/* Botón */
+button[type="submit"] {
+  background: #ece9d8;
+  border: 2px solid #999;
+  padding: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background: #d6d3c4;
+}
+
+/* Barra de estado */
+.status-bar {
+  background: #c0c0c0;
+  padding: 4px 6px;
+  font-size: 11px;
+  border-top: 2px solid #999;
+  color: #000;
+}

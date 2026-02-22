@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+body{
+    background-color: #fdeaf2;
+}
+html{
+    font-size: 62.5%;
+    font-family: "Bad Script", cursive;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*formulario*/
+.contact-form{
+    background-color: #fbd5e5;
+    color: #d4679a;
+    font-size: 18px;
+    max-width: 800px;
+    max-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem;
+    padding-bottom: 50px;
+    margin-top: 90px;
+    margin-bottom: 110px;
+    border-radius: 30px;
+    box-shadow: 0 0 20px 0 rgb(242, 190, 209);
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; 
+}
+.tituloo{
+    text-align: center;
+    font-size: 35px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    color:  #d4679a;
+    font-family: 'Times New Roman', Times, serif;
+}
+.contact-form form p{
+    margin-top: 20px;
+    padding: 1rem;
+}
+.contact-form form input{
+    width: 100%;
+    padding: .7rem;
+    border: none;
+    background: none;
+    outline: 0;
+    border-bottom: 1px solid #b74c7e;
+    color: black;
+    font-family: "Bad Script", cursive;
+    font-size: 15px;
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 40px;
+}
+.contact-form form  button{
+    background-color: #f48fb1;
+    border: 0;
+    text-transform: uppercase;
+    padding: 2rem 4rem;
+    color: white;
+    border-radius: 90px;
+    font-size: 15px;
+}
+.select{
+    background-color: #fdeaf2;
+    color: black;
+    width: 400px;
+    padding-left: 30px;
+    border-color: #b74c7e;
+    font-family: "Bad Script", cursive;
+    font-size: 15px;
+}
+.block1{
+    grid-column: 1 / 3;
+}
+.contact-form form .block{
+    grid-column: 1 / 3;
+}
+.contact-form form textarea{
+    width: 100%;
+    padding: .7rem;
+    border: none;
+    background: none;
+    outline: 0;
+    border-bottom: 1px solid #b74c7e;
+    color: black;
+    font-family: "Bad Script", cursive;
+}
+/*tabla*/
+.contenedor-tabla {
+    background-color: #fbd5e5;
+    color: #d4679a;
+    max-width: 1170px;
+    margin: 40px auto;
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 0 20px 0 rgb(242, 190, 209);
+}
+.contenedor-tabla h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #d4679a;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+}
+.contenedor-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Bad Script', cursive;
+    font-size: 16px;
+    color: black;
+}
+.contenedor-tabla th, .contenedor-tabla td {
+    padding: 12px;
+    border-bottom: 1px solid #b74c7e;
+    text-align: center;
+}
+.contenedor-tabla th {
+    background-color: #fdeaf2;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.contenedor-tabla tr:nth-child(even) {
+    background-color: #fdeaf2;
+}
+.contenedor-tabla a {
+    color: #b74c7e;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.contenedor-tabla a:hover {
+    color: #f48fb1;
+}
+.contenedor-tabla td a {
+    padding: 8px 16px;
+    border-radius: 5px;
+    background-color: #f48fb1;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.contenedor-tabla td a:hover {
+    background-color: #d4679a;
+}

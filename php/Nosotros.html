@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="es">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://thesoundgarden.com/">
+    <meta name="author" content="The SoundGarden Team">
+
+
+  <!-- Preload de imágenes  -->
+  <link rel="preload" as="image" href="img/favicon.png">
+  <link rel="preload" as="image" href="img/bajista-en-un-escenario-con-un-conjunto-de-pedales-de-efectos-de-distorsion.jpg">
+
+  <!-- =========================================
+       BIBLIOTECAS Y FRAMEWORKS CSS
+  ========================================== -->
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css">
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome (íconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Leaflet (mapas interactivos) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <!-- Estilos principales -->
+  <link rel="preload" href="css/style.css" as="style">
+  <!--Vínculación al CSS EXTERNO-->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =========================
+       FAVICONS
+  ========================== -->
+  <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="SoundGarden">
+  <link rel="manifest" href="documents/site.webmanifest">
+  <title>Sobre nosotros - The SoundGarden</title>
+</head>
+
+<header>
+  <!-- ===============================================
+     SALUDO JS PARA LOS USUARIOS DE THE SOUNDGARDEN
+==================================================== -->
+
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  const hora = new Date().getHours();
+  let saludo, colorFondo;
+
+  if (hora < 12) {
+    saludo = "☀️ ¡Buenos días, músico! Empieza tu día con el ritmo en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #ffafbd, #ffc3a0)";
+  } else if (hora < 19) {
+    saludo = " 🌵 ¡Buenas tardes! Descubre algunos instrumentos hechos con alma cuyabra.";
+    colorFondo = "linear-gradient(90deg, #89f7fe, #66a6ff)";
+  } else {
+    saludo = "🌙 ¡Buenas noches, artista! La inspiración no duerme en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #2b5876, #4e4376)";
+  }
+
+  const saludoBanner = document.createElement("div");
+  saludoBanner.innerHTML = `<strong>${saludo}</strong>`;
+  saludoBanner.style.cssText = `
+    background: ${colorFondo};
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+    animation: aparecer 1.2s ease-out forwards;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  `;
+
+  document.body.prepend(saludoBanner);
+});
+
+// Animación de aparición suave
+const estiloAnimacion = document.createElement("style");
+estiloAnimacion.textContent = `
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(estiloAnimacion);
+</script>
+
+   <!-- =========================
+       ENCABEZADO PRINCIPAL
+  ========================== -->
+  <header class="encabezado-sitio">
+    <div class="header-contenedor">
+
+      <!-- LOGO -->
+      <div class="logo-nombre">
+        <a href="index.html" aria-label="Ir al inicio">
+          <img src="img/favicon-96x96.png" alt="Logo de The SoundGarden" class="logo" loading="lazy">
+        </a>
+      </div>
+
+     <!-- NAVEGACIÓN -->
+      <nav class="navbarra" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="testimoniales.html">Testimonios</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="Nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="Login.html">Acceder</a></li>
+        </ul>
+      </nav>
+
+     <!-- =========================
+     CARRITO, BÚSQUEDA Y CONFIGURACIÓN
+========================= -->
+<div class="acciones-usuario">
+  
+  <!-- BÚSQUEDA -->
+  <form id="form-buscar" role="search">
+    <input 
+      type="search" 
+      id="buscar-producto"
+      placeholder="Buscar productos..." 
+      aria-label="Buscar productos" 
+    />
+    <button type="submit" aria-label="Buscar">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+
+  <!-- CARRITO -->
+  <button id="btn-carrito" aria-label="Ver carrito">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+
+<!-- === MENÚ DE CONFIGURACIÓN (versión optimizada y funcional) === -->
+<div class="config-menu">
+  <button id="btn-config" aria-label="Abrir configuración" aria-expanded="false">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div id="menu-config" class="menu-oculto">
+    <ul>
+      <li><a href="login.html"> 🗝️ Iniciar Sesión</a></li>
+      <li><a href="php/administrar.html">📠 Administrar</a></li>
+      <li><a href="contacto.html">🧭 Ayuda </a></li>
+      <li><a href="cuenta.html">🎯 Mi Cuenta</a></li>
+      <li><a href="Cerrarlogin.html">🚪 Salir</a></li>
+    </ul>
+  </div>
+</div>
+</head>
+
+
+<style>
+  
+    /* ========================================================
+  
+        FONDO QUE VA A CUBRIR TODA LA PANTALLA DEL SITIO WEB
+
+===============================================================*/
+
+body {
+  background: url("img/fondonegro.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed; /* esto va a hacer que se baje suave a hacer scroll */
+}
+</style>
+
+<style>
+/* === CONTENEDOR GENERAL === */
+.config-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  z-index: 9999;
+}
+
+/* === BOTÓN === */
+#btn-config {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#btn-config:hover {
+  transform: rotate(45deg);
+  color: #f4c542;
+}
+
+/* === MENÚ === */
+#menu-config {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostrar menú */
+#menu-config.menu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* === ITEMS === */
+#menu-config ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-config li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+#menu-config li:last-child {
+  border-bottom: none;
+}
+
+#menu-config a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+#menu-config a:hover {
+  color: #ff6600;
+}
+</style>
+
+<script>
+  
+// === MENÚ DE CONFIGURACIÓN ===
+const btnConfig = document.getElementById('btn-config');
+const menuConfig = document.getElementById('menu-config');
+
+btnConfig.addEventListener('click', () => {
+  const visible = menuConfig.classList.toggle('menu-visible');
+  btnConfig.setAttribute('aria-expanded', visible);
+});
+
+// Cierra el menú si se hace clic fuera
+window.addEventListener('click', (e) => {
+  if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
+    menuConfig.classList.remove('menu-visible');
+    btnConfig.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+
+</header>
+<body>
+<main id="contenido-principal">
+
+<!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================== -->
+
+<main class="pagina quienes-somos">
+  <section class="hero-quienes-somos">
+    <div class="contenedor">
+      <h1><i class="fa-solid fa-seedling"></i> ¿Quiénes Somos?</h1>
+      <p class="subtitulo">
+        <em>Donde nace el sonido, florece el alma.</em><br>
+        En <strong>The SoundGarden</strong>, creemos que la música es una manifestación profunda del espíritu humano.  
+        Desde el corazón de <strong>Armenia, Quindío</strong>, surgimos en 2030 como un proyecto que une ciencia, arte y pasión por el sonido.  
+        Fundado por <strong>Daniel</strong> —médico y melómano— junto a <strong>Sebastián</strong> e <strong>Ian</strong> —músicos y cofundadores de la banda de hardcore <em>Kalix</em>—,  
+        The SoundGarden creció como una fusión entre la precisión del conocimiento y la libertad del arte.
+      </p>
+    </div>
+  </section>
+
+<!-- ==============================
+     SECCIÓN: MISIÓN — THE SOUNDGARDEN
+============================== -->
+<section class="seccion-contenido mision" aria-labelledby="titulo-mision">
+  <div class="contenedor">
+    <header class="encabezado-seccion">
+      <h2 id="titulo-mision">
+        <i class="fa-solid fa-bullseye"></i> Nuestra Misión
+      </h2>
+    </header>
+
+    <blockquote class="caja-destacada">
+      <p class="texto-destacado">
+        “Nuestra misión es impulsar el desarrollo musical del Quindío y del Eje Cafetero.”
+      </p>
+    </blockquote>
+
+    <div class="contenido-texto">
+      <p>
+        En <strong>The SoundGarden</strong> cultivamos el arte de hacer música como una experiencia que une ciencia, emoción y comunidad.
+        Nos proponemos ser el punto de encuentro donde convergen los sonidos del alma y la precisión del conocimiento.  
+      </p>
+      <p>
+        Ofrecemos instrumentos, accesorios y asesoría de alta calidad para músicos de todos los niveles —desde el primer acorde hasta la producción profesional—.
+        Más que una tienda, somos un espacio de aprendizaje, colaboración y expresión.  
+      </p>
+      <p>
+        Promovemos la creatividad, fortalecemos la cultura local y apoyamos los nuevos talentos con pasión, calidez y compromiso.  
+        Nuestro propósito es claro: sembrar inspiración y cosechar arte sonoro.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- ========================================
+     SECCIÓN: VISIÓN — THE SOUNDGARDEN
+========================================= -->
+<section class="seccion-contenido seccion-vision seccion-invertida" aria-labelledby="titulo-vision">
+  <div class="contenedor">
+    
+    <!-- Imagen representativa -->
+    <figure class="contenido-imagen">
+      <img 
+        src="img/Armenia,_Quindio,_Colombia_-_panoramio_-_Jimmy_Gómez_N_(5).jpg" 
+        alt="Vista panorámica de Armenia, Quindío, inspiración de The SoundGarden" 
+        loading="lazy">
+      <figcaption>Armenia, Quindío — donde florece el sonido.</figcaption>
+    </figure>
+
+    <!-- Texto de visión -->
+    <article class="contenido-texto">
+      <header class="encabezado-seccion">
+        <h2 id="titulo-vision">
+          <i class="fa-solid fa-eye"></i> Nuestra Visión
+        </h2>
+      </header>
+
+      <blockquote class="caja-destacada">
+        <p class="texto-destacado">
+          “Ser reconocidos como un espacio donde la música florece como vida: transformando la juventud, la sociedad y la región.”
+        </p>
+      </blockquote>
+
+      <p>
+        En <strong>The SoundGarden</strong>, soñamos con construir una cultura musical que trascienda generaciones.  
+        Creemos que cada acorde puede sanar, cada nota puede inspirar y cada instrumento es una semilla de cambio.  
+        Nuestro jardín sonoro crece entre <em>cuerdas, madera y pasión</em>, convirtiendo el ruido en armonía y el talento en legado.
+      </p>
+
+      <p>
+        Desde <strong>Armenia, Quindío</strong>, extendemos nuestras raíces por todo el Eje Cafetero,  
+        honrando la tradición mientras abrazamos la innovación.  
+        Cada instrumento que entregamos es una pieza viva: una promesa de arte y humanidad.
+      </p>
+
+      <p class="frase-final">
+        <i class="fa-solid fa-quote-left"></i>  
+        En The SoundGarden, el sonido no se vende: se comparte, se cultiva y se transforma.  
+        <i class="fa-solid fa-quote-right"></i>
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ========================================
+     SECCIÓN: FILOSOFÍA — THE SOUNDGARDEN
+========================================= -->
+<section class="seccion-contenido seccion-filosofia" aria-labelledby="titulo-filosofia">
+  <div class="contenedor seccion-invertida">
+    
+    <!-- Imagen representativa -->
+    <figure class="contenido-imagen">
+      <img 
+        src="img/pensar.jpeg" 
+        alt="Cliente disfrutando de la experiencia musical en The SoundGarden" 
+        loading="lazy">
+      <figcaption>La música florece donde hay alma, no marcas.</figcaption>
+    </figure>
+
+    <!-- Texto de filosofía -->
+    <article class="contenido-texto">
+      <header class="encabezado-seccion">
+        <h2 id="titulo-filosofia">
+          <i class="fa-solid fa-seedling"></i> Nuestra Filosofía
+        </h2>
+      </header>
+
+      <blockquote class="caja-destacada">
+        <p class="texto-destacado">
+          <i class="fa-solid fa-quote-left"></i>  
+          Nos centramos en tu <strong>comodidad</strong> y en tus <strong>preferencias</strong>,  
+          para ofrecerte una experiencia musical auténtica, accesible y humana.  
+          <i class="fa-solid fa-quote-right"></i>
+        </p>
+      </blockquote>
+
+      <p>
+        En <strong>The SoundGarden</strong>, creemos que la música no es un lujo:  
+        es un lenguaje universal que todos merecen hablar.  
+        Nuestra filosofía se construye sobre tres pilares: <em>honestidad</em>, <em>cercanía</em> y <em>respeto</em>.  
+        Acompañamos a cada artista con instrumentos de alta calidad, precios justos  
+        y un trato humano que prioriza la inspiración por encima de la venta.
+      </p>
+
+      <p>
+        Rechazamos el culto a las marcas y abrazamos la <strong>esencia del sonido</strong>:  
+        pureza, durabilidad y diseño pensado para músicos reales.  
+        Cada instrumento que entregamos es una extensión del alma de quien lo toca,  
+        y cada cliente, una nueva raíz en este jardín donde la música florece.
+      </p>
+
+      <footer class="frase-final">
+        <i class="fa-solid fa-guitar"></i>  
+        En <strong>The SoundGarden</strong>, tu pasión es nuestra raíz.
+      </footer>
+    </article>
+  </div>
+</section>
+
+<!-- ========================================
+     SECCIÓN: NUESTRA HISTORIA — THE SOUNDGARDEN
+========================================= -->
+
+<section class="seccion-historia" aria-labelledby="titulo-historia">
+  <header class="encabezado-seccion">
+    <h2 id="titulo-historia"><i class="fa-solid fa-timeline"></i> Nuestra Historia</h2>
+    <p class="subtitulo-historia">
+      De una idea entre amigos a un eco sonoro que trascendió fronteras.
+    </p>
+  </header>
+
+  <div class="linea-tiempo">
+
+    <!-- 2015 -->
+    <div class="item-tiempo">
+      <div class="icono-tiempo"><i class="fa-solid fa-flask"></i></div>
+      <div class="ano-tiempo"><strong>2015</strong></div>
+      <div class="contenido-tiempo">
+        <h3>Los Inicios: Donde germinó la idea</h3>
+        <p>
+          Todo comenzó en <strong>2015</strong> en los pasillos de la 
+          <em>Universidad del Quindío</em>. 
+          <strong>Carlos</strong> —estudiante de Química y melómano—, 
+          <strong>Sebastián</strong> —programador y guitarrista de <em>Kalix</em>— 
+          e <strong>Juan</strong> —ingeniero ambiental con oído para la armonía— 
+          se encontraron entre laboratorios y ensayos.
+        </p>
+        <p>
+          Entre tazas de café, acordes y debates, nació una idea:  
+          unir ciencia, arte y tecnología para crear un espacio donde el sonido fuera algo más que ruido;  
+          donde cada instrumento reflejara la esencia de su creador.  
+          Así germinó <strong>The SoundGarden</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2020 -->
+    <div class="item-tiempo">
+      <div class="icono-tiempo"><i class="fa-solid fa-hammer"></i></div>
+      <div class="ano-tiempo"><strong>2020</strong></div>
+      <div class="contenido-tiempo">
+        <h3>De la Universidad al Taller</h3>
+        <p>
+          En <strong>2020</strong>, el sueño tomó forma tangible: un pequeño taller-tienda en <strong>Armenia, Quindío</strong>.  
+          Con recursos propios, mucho trabajo y un propósito claro, el equipo abrió las puertas de 
+          <strong>The SoundGarden</strong> al público.
+        </p>
+        <p>
+          Se sumó <strong>Dariangel</strong>, diseñadora visual y estratega creativa,  
+          quien aportó una identidad gráfica cálida y coherente.  
+          Juntos, transformaron un local modesto en un laboratorio de sonido, arte y humanidad.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2035 -->
+    <div class="item-tiempo">
+      <div class="icono-tiempo"><i class="fa-solid fa-music"></i></div>
+      <div class="ano-tiempo"><strong>2035</strong></div>
+      <div class="contenido-tiempo">
+        <h3>El Eco Quindiano</h3>
+        <p>
+          Para <strong>2035</strong>, <strong>The SoundGarden</strong> se había consolidado como un referente en el Eje Cafetero.  
+          Nuestro taller se transformó en un punto de encuentro para músicos, técnicos y soñadores.  
+          La comunidad artística encontró en nosotros un refugio donde la calidad se medía por la pasión.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2043 -->
+    <div class="item-tiempo">
+      <div class="icono-tiempo"><i class="fa-solid fa-map-marked-alt"></i></div>
+      <div class="ano-tiempo"><strong>2043</strong></div>
+      <div class="contenido-tiempo">
+        <h3>Expansión Nacional</h3>
+        <p>
+          En <strong>2043</strong>, el eco se extendió por toda Colombia.  
+          Cada guitarra, bajo o violín fabricado en Armenia llevaba consigo una promesa:  
+          que la armonía cultivada en el Quindío podía florecer en cualquier rincón del país.  
+          La filosofía seguía intacta: excelencia, humanidad y alma artesanal.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2048 -->
+    <div class="item-tiempo">
+      <div class="icono-tiempo"><i class="fa-solid fa-globe"></i></div>
+      <div class="ano-tiempo"><strong>2048</strong></div>
+      <div class="contenido-tiempo">
+        <h3>El Sonido que Conecta Mundos</h3>
+        <p>
+          En <strong>2048</strong>, <strong>The SoundGarden</strong> cruzó fronteras.  
+          Desde el corazón del Eje Cafetero, nuestros instrumentos llegaron a América, Europa y Asia.  
+          Cada pieza combinaba precisión científica, sensibilidad artística y tradición luthier.  
+          Porque para nosotros, un instrumento no solo suena:  
+          <strong>canta la historia de quienes lo tocan.</strong>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<h2>Nuestros Fundadores: Las Raíces de Nuestra Armonía 🥇</h2>
+<p><strong><em>
+Detrás de cada instrumento y cada melodía que florece en The Soundgarden, están las manos y las mentes que sembraron este sueño.  
+Ellos no solo crearon una tienda, sino un espacio donde la ciencia, el arte y la música se entrelazan con alma y precisión.
+</em></strong></p>
+
+<section class="seccion-fundadores">
+  <h3>Nuestros Brillantes Fundadores</h3>
+
+  <div class="contenedor-fundadores">
+    <!-- Fundador 1 -->
+    <div class="tarjeta-fundador">
+      <img src="img/person1.jpg" alt="Sebastián Palacios David - Co-Fundador" class="imagen-fundador">
+      <h4>Sebastián Palacios David</h4>
+      <p><strong><em>Co-Fundador · Guitarrista · Productor Creativo</em></strong></p>
+      <p class="descripcion-fundador">
+        La fuerza roquera y la esencia creativa de <strong>The Soundgarden</strong>.  
+        Guitarrista y fundador de la banda <em>Kalix</em>, Sebastián aporta una mente musical audaz, capaz de transformar la emoción en sonido.  
+        Su experiencia en escenarios le permite diseñar instrumentos que no solo suenan bien, sino que vibran con el alma del artista.
+      </p>
+    </div>
+
+    <!-- Fundador 2 -->
+    <div class="tarjeta-fundador">
+      <img src="img/person1.jpg" alt="Juan Carrajal Montecarlos - Co-Fundador" class="imagen-fundador">
+      <h4>Juan Carrajal Montecarlos</h4>
+      <p><strong><em>Co-Fundador · Ingeniero Ambiental · Visionario Sonoro</em></strong></p>
+      <p class="descripcion-fundador">
+        Un oído entrenado para la armonía natural y el detalle técnico.  
+        Ian, compañero inseparable de Sebastián en <em>Kalix</em>, combina su rigor ingenieril con una sensibilidad única por la acústica.  
+        Su liderazgo silencioso y estratégico garantiza que cada instrumento nazca bajo una filosofía sostenible, humana y precisa.
+      </p>
+    </div>
+
+    <!-- Fundador 3 -->
+    <div class="tarjeta-fundador">
+      <img src="img/person1.jpg" alt="Carlos Linus Villegas- Co-Fundador" class="imagen-fundador">
+      <h4>Carlos Linus Villegas</h4>
+      <p><strong><em>Co-Fundador · Científico · Programador · Soñador</em></strong></p>
+      <p class="descripcion-fundador">
+        De vocación científica y espíritu melódico, Carlos une la precisión de la química con la emoción de la música.  
+        Su mente analítica y su sensibilidad lo convierten en el puente entre la ingeniería y el arte sonoro.  
+        En <strong>The Soundgarden</strong>, su visión busca que cada instrumento sea más que un objeto: una extensión del alma que lo toca.
+      </p>
+    </div>
+
+    <!-- Fundadora 4 -->
+    <div class="tarjeta-fundador">
+      <img src="img/person1.jpg" alt="aniela Valeria Chavez - Co-Fundadora" class="imagen-fundador">
+      <h4>Daniela Valeria Chavez</h4>
+      <p><strong><em>Co-Fundadora · Diseñadora y Estratega Creativa</em></strong></p>
+      <p class="descripcion-fundador">
+        El arte y la estética de <strong>The Soundgarden</strong> llevan su sello.  
+        Diseñadora apasionada por la animación, la comunicación visual y la armonía cromática, Daniela transforma cada concepto en experiencia.  
+        Su visión estética mantiene vivo el espíritu artesanal de la marca, conectando ciencia, emoción y belleza visual en cada creación.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SECCIÓN CÓMO TRABAJAMOS - THE SOUNDGARDEN
+===================================================== -->
+<section class="seccion-trabajo">
+  <div class="contenedor">
+    <h2 class="titulo-seccion"><i class="fas fa-tools"></i> Cómo Trabajamos</h2>
+    <p class="intro-trabajo">
+      En <strong>The SoundGarden</strong>, cada instrumento nace del equilibrio entre precisión técnica y emoción humana.  
+      No fabricamos en serie: cultivamos sonido. Desde la idea inicial hasta el último acorde, cada paso importa.
+    </p>
+
+    <div class="proceso-trabajo">
+      <div class="etapa-trabajo">
+        <i class="fas fa-flask icono-trabajo"></i>
+        <h3>Diseño & Experimentación</h3>
+        <p>
+          Todo comienza en nuestro pequeño laboratorio de ideas: probamos maderas, resonancias y formas.  
+          Cada boceto busca una meta simple —que el instrumento respire y tenga alma propia.
+        </p>
+      </div>
+
+      <div class="etapa-trabajo">
+        <i class="fas fa-guitar icono-trabajo"></i>
+        <h3>Construcción Artesanal</h3>
+        <p>
+          Cortamos, ensamblamos y lijamos a mano, cuidando cada curva y unión.  
+          La tradición luthier se mezcla con la ingeniería moderna para alcanzar un sonido puro y natural.
+        </p>
+      </div>
+
+      <div class="etapa-trabajo">
+        <i class="fas fa-microchip icono-trabajo"></i>
+        <h3>Calibración & Tecnología</h3>
+        <p>
+          Cada instrumento pasa por pruebas electrónicas y ajustes de precisión.  
+          Afinamos la respuesta acústica y eléctrica con herramientas de laboratorio y oído entrenado.
+        </p>
+      </div>
+
+      <div class="etapa-trabajo">
+        <i class="fas fa-hands icono-trabajo"></i>
+        <h3>Entrega & Conexión</h3>
+        <p>
+          No entregamos solo un producto, sino una extensión de quien eres.  
+          Cada cliente recibe su instrumento con la promesa de acompañarlo en cada nota, cada historia y cada escenario.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================
+     ESTILOS - CÓMO TRABAJAMOS
+========================= -->
+<style>
+.seccion-trabajo {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-top: 2px solid #d4af37;
+}
+
+.titulo-seccion {
+  color: #d4af37;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.intro-trabajo {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.proceso-trabajo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.etapa-trabajo {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 12px;
+  width: 270px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.etapa-trabajo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(212,175,55,0.4);
+}
+
+.icono-trabajo {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.etapa-trabajo h3 {
+  color: #ffae42;
+  margin-bottom: 0.8rem;
+}
+
+.etapa-trabajo p {
+  color: #bfbfbf;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.etapa-trabajo:hover .icono-trabajo {
+  color: #ff4040;
+}
+</style>
+
+<!-- =====================================================
+     SECCIÓN NUESTRO COMPROMISO - THE SOUNDGARDEN
+===================================================== -->
+<section class="seccion-compromiso">
+  <div class="contenedor">
+    <h2 class="titulo-seccion">
+      <i class="fas fa-handshake"></i> Nuestro Compromiso
+    </h2>
+
+    <p class="intro-compromiso">
+      En <strong>The SoundGarden</strong> creemos que la música florece solo cuando el mundo también lo hace.  
+      Por eso cultivamos un compromiso profundo con la sostenibilidad, la comunidad y el arte como fuerza de cambio.
+    </p>
+    <div class="bloque-compromiso">
+      <!-- Tarjeta 1 -->
+      <article class="tarjeta-compromiso">
+        <i class="fas fa-leaf icono-compromiso"></i>
+        <h3 class="titulo-compromiso">Maderas Responsables</h3>
+        <p>
+          Trabajamos con <strong>maderas certificadas y sostenibles</strong> provenientes de cultivos controlados.  
+          Cada instrumento honra los ciclos de la Tierra y su eterno acto de renovación.
+        </p>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="tarjeta-compromiso">
+        <i class="fas fa-recycle icono-compromiso"></i>
+        <h3 class="titulo-compromiso">Materiales Reimaginados</h3>
+        <p>
+          Damos nueva vida a <strong>metales, cuerdas y empaques reciclados</strong>,  
+          convencidos de que incluso lo usado puede volver a sonar si se trata con respeto e ingenio.
+        </p>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="tarjeta-compromiso">
+        <i class="fas fa-users icono-compromiso"></i>
+        <h3 class="titulo-compromiso">Apoyo a Jóvenes Músicos</h3>
+        <p>
+          Colaboramos con escuelas y artistas emergentes mediante <strong>becas, talleres y descuentos solidarios</strong>.  
+          Nuestro propósito: que ningún talento quede en silencio por falta de oportunidades.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================
+     ESTILOS - NUESTRO COMPROMISO
+========================= -->
+<style>
+.seccion-compromiso {
+  background-color: #0c0c0c;
+  color: #f5f5f5;
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-top: 2px solid #d4af37;
+}
+
+.titulo-seccion {
+  color: #d4af37;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.intro-compromiso {
+  max-width: 750px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: #d0d0d0;
+}
+
+.bloque-compromiso {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tarjeta-compromiso {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 14px;
+  width: 280px;
+  padding: 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-compromiso:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 160, 0, 0.3);
+}
+
+.icono-compromiso {
+  font-size: 2.8rem;
+  color: #ffae42;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.tarjeta-compromiso:hover .icono-compromiso {
+  color: #ff4040;
+}
+
+.tarjeta-compromiso h3 {
+  color: #d4af37;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.tarjeta-compromiso p {
+  color: #bfbfbf;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.frase-compromiso {
+  margin-top: 3rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #ffae42;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+}
+</style>
+
+<!-- =====================================================
+     SECCIÓN FINAL - EL SONIDO QUE NOS UNE
+===================================================== -->
+<section class="seccion-final">
+  <div class="contenedor">
+    <h2 class="titulo-seccion">El Sonido Que Nos Une</h2>
+
+    <p class="intro-final">
+      En <strong>The SoundGarden</strong> no solo fabricamos instrumentos: cultivamos historias.  
+      Cada guitarra, bajo o amplificador nace de la unión entre la precisión técnica y la emoción humana.  
+      Somos una familia de soñadores que cree que el sonido no pertenece a las élites, sino a todos los que sienten el llamado de crear.  
+      Cada cliente que confía en nosotros forma parte de este jardín donde el arte florece al ritmo de las cuerdas.
+    </p>
+
+    <div class="bloque-final">
+      <div class="tarjeta-final">
+        <i class="fas fa-handshake icono-final"></i>
+        <h3>Compromiso Humano</h3>
+        <p>
+          Escuchamos antes de fabricar. Nuestro compromiso comienza contigo: comprender tus metas, tus gustos y la historia detrás de tu música.  
+          No vendemos objetos, sino herramientas de expresión que acompañan cada etapa de tu viaje artístico.
+        </p>
+      </div>
+
+      <div class="tarjeta-final">
+        <i class="fas fa-flask icono-final"></i>
+        <h3>Pasión e Innovación</h3>
+        <p>
+          Cada instrumento combina la tradición artesanal con la experimentación moderna.  
+          Usamos tecnologías limpias, maderas sostenibles y calibración digital para lograr una calidad que respira vida.  
+          Innovar no es reemplazar el alma del sonido, sino descubrir nuevas formas de resonar.
+        </p>
+      </div>
+
+      <div class="tarjeta-final">
+        <i class="fas fa-heart icono-final"></i>
+        <h3>Una Comunidad con Propósito</h3>
+        <p>
+          Más allá de vender, queremos inspirar. Organizamos talleres, sesiones abiertas y colaboraciones con artistas locales,  
+          porque creemos en la fuerza del aprendizaje compartido. En <strong>The SoundGarden</strong>, la música une generaciones, culturas y pasiones.
+        </p>
+      </div>
+    </div>
+
+    <div class="frase-final">
+      <i class="fas fa-guitar icono-final"></i>
+      <p>“Donde la ciencia y el arte se encuentran, florece la música.”</p>
+    </div>
+
+    <p class="texto-cierre">
+      Este es nuestro propósito: crear un espacio donde el sonido, la creatividad y la humanidad convivan en armonía.  
+      No somos solo una tienda, somos una idea en movimiento. Cada acorde que tocas, cada nota que vibra,  
+      también forma parte de nuestra historia.
+    </p>
+
+    <div class="boton-final">
+      <a href="/contacto.html" class="btn-contacto">
+        Conectemos &nbsp;|&nbsp; Explora Nuestros Instrumentos
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!--boton para subir: scroll-->
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Botón flotante */
+    #btn-arriba {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none; /* oculto por defecto */
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    #btn-arriba:hover {
+      background: #555;
+    }
+
+    
+</style>
+</main>
+
+<br><br><br>
+<!-- Banner de Cookies -->
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <p>
+    ¡Hola! 🍪 Usamos cookies para mejorar tu experiencia. 
+    <a href="Legal.html">Más información</a>
+  </p>
+  <button id="accept-cookies">Aceptar</button>
+</div>
+<!-- Botón Volver Ar
+ riba (solo imagen) -->
+<button id="btn-arriba" aria-label="Volver arriba" style="display:none;">
+  <img src="img/icono.webp" alt="Subir" width="60" height="60">
+</button>
+
+<style>
+  /* ====== BOTÓN VOLVER ARRIBA — SOLO IMAGEN ====== */
+  #btn-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* oculto por defecto */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  #btn-arriba img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  #btn-arriba:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const btnArriba = document.getElementById("btn-arriba");
+
+  // Mostrar el botón al bajar más de 200px
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+      btnArriba.style.display = "block";
+    } else {
+      btnArriba.style.display = "none";
+    }
+  });
+
+  // Al hacer clic, volver suavemente arriba
+  btnArriba.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+// ====== BANNER DE COOKIES ======
+const cookieBanner = document.getElementById("cookie-banner");
+const aceptarBtn = document.getElementById("accept-cookies");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("cookiesAceptadas")) {
+    cookieBanner.style.display = "flex";
+  }
+});
+
+aceptarBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesAceptadas", "true");
+  cookieBanner.style.display = "none";
+});
+</script>
+
+
+
+<!-- =====================================================
+     BANNER DE CONFIANZA - THE SOUNDGARDEN
+===================================================== -->
+<section class="banner-confianza">
+  <div class="contenedor-confianza">
+    <div class="item-confianza">
+      <i class="fas fa-shield-alt icono-confianza"></i>
+      <span>Garantía 1 año</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-lock icono-confianza"></i>
+      <span>Pago seguro</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-flag icono-confianza"></i>
+      <span>Hecho en Colombia</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-heart icono-confianza"></i>
+      <span>Hecho con Amor</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<style>
+
+/* =====================================================
+   BANNER DE CONFIANZA - THE SOUNDGARDEN
+===================================================== */
+.banner-confianza {
+  background: #0d0d0d; /* Negro profundo */
+  color: #f8d37b; /* Dorado suave */
+  padding: 2rem 1rem;
+  border-top: 2px solid #c46b18; /* Naranja cálido */
+  border-bottom: 2px solid #7c1b16; /* Rojo acento */
+  text-align: center;
+}
+
+.contenedor-confianza {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.item-confianza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.item-confianza:hover {
+  transform: translateY(-5px);
+  color: #ffb400; /* Dorado más brillante al pasar el mouse */
+}
+
+.icono-confianza {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ff9a00; /* Naranja principal */
+}
+</style>
+
+<!-- =========================
+   PIE DE PÁGINA 
+========================= -->
+
+<footer class="footer">
+  <div class="contenedor-footer">
+    
+    <!-- Columna 1: Identidad -->
+    <div class="columna">
+      <h3>The SoundGarden</h3>
+      <p>🎶 Tienda, estudio y espacio creativo para músicos. Inspiramos la escena sonora del Quindío con pasión y calidad 100% cuyabra.</p>
+      <p>Guitarras, bajos, teclados, audio profesional y mucho más.</p>
+    </div>
+
+    <!-- Columna 2: Servicios -->
+    <div class="columna">
+      <h3>Servicios y Otros</h3>
+      <ul class="lista-footer">
+        <li><a href="productos.html">Venta de Instrumentos</a></li>
+        <li><a href="Servicios.html">Mantenimiento y Reparación</a></li>
+        <li><a href="Servicios.html">Clases y Talleres Musicales</a></li>
+        <li><a href="eventos.html">Sonido para Eventos</a></li>
+        <li><a href="Servicios.html">Producción y Grabación</a></li>
+        <li><a href="Blog.html">Blogs</a></li>
+        <li><a href="Banda.html">Nuestra Semilla: Nuestra Banda</a></li>
+        <li><a href="Horarios.html">Nuestro horarios</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Soporte -->
+    <div class="columna">
+      <h3>Soporte y Ayuda</h3>
+      <ul class="lista-footer">
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="contacto.html">Contáctanos</a></li>
+        <li><a href="soporte.html">¿Problema con su compra?</a></li>
+        <li><a href="garantia.html">Garantías y Devoluciones</a></li>
+        <li><a href="Envios.html">Envíos Nacionales</a></li>
+        <li><a href="foro.html">Nuestro Foro</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Cuenta -->
+    <div class="columna">
+      <h3>Mi Cuenta</h3>
+      <ul class="lista-footer">
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="Login.html">Registrarse</a></li>
+        <li><a href="cuenta.html">Mi Perfil</a></li>
+        <li><a href="CerrarLogin.html">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna  5: Sección Información de Contacto -->
+                <div class="seccion-footer">
+                    <h3>⚡ Información de Contacto 🔥</h3>
+                    <br>
+                    <p><i class="fas fa-map-marker-alt"></i>Calle 54N, MZ 24, Urb. Bailadores - Armenia, Quindío - Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 321 353 2665
+                    <br>
+                    <i class="fas fa-mobile-alt"></i> +57 310 456 7890</p>
+                    <p><i class="fas fa-envelope"></i>TheSoundGarden@proton.me</p>
+                    <i class="fas fa-globe"></i> www.TheSoundGarden.com</p>
+                    <p><i class="fas fa-clock"></i> De Lunes a Domingo
+                    7:00 AM - 7:00 PM</p>
+                    <a href="rss.xml" class="btn-rss" target="_blank" title="Suscribirse al canal RSS">
+        📡 Suscribirse a nuestro RSS 
+      </a>
+                </div>
+
+    <!-- Columna 6: Las Redes Sociales -->
+    <div class="columna">
+      <h3>Síguenos</h3>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/NASA" target="_blank" title="Facebook The SoundGarden">
+          <img src="img/facebook.svg" alt="Facebook The SoundGarden">
+        </a>
+        <a href="https://x.com/Orisono728" target="_blank" title="X (Twitter)">
+          <img src="img/twitter.svg" alt="X The SoundGarden">
+        </a>
+        <a href="https://www.instagram.com/kilonova727/" target="_blank" title="Instagram The SoundGarden">
+          <img src="img/instagram-square.svg" alt="Instagram The SoundGarden">
+        </a>
+        <a href="https://www.youtube.com/@Orisono1" target="_blank" title="YouTube The SoundGarden">
+          <img src="img/youtube.svg" alt="YouTube The SoundGarden">
+        </a>
+        <a href="https://soundcloud.com/orisono727" target="_blank" title="soundcloud The SoundGarden">
+          <img src="img/soundcloud.svg" alt="soundcloud The SoundGarden">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formas de pago -->
+  <div class="pagos">
+    <h3>Medios de Pago</h3>
+    <div class="pagos-icons">
+      <img src="img/Tarjeta.png" alt="Visa">
+      <img src="img/Tarjeta2.png" alt="MasterCard">
+      <img src="img/Tarjeta3.png" alt="American Express">
+      <img src="img/Tarjeta4.png" alt="PayPal">
+      <img src="img/Tarjeta5.png" alt="Nequi">
+      <img src="img/Tarjeta6.png" alt="Daviplata">
+      <img src="img/Tarjeta7.png" alt="Bancolombia">
+      <img src="img/Tarjeta8.png" alt="PSE">
+    </div>
+  </div>
+
+  <!-- Información Legal -->
+  <div class="informacion-legal">
+    <ul>
+      <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+      <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+      <li><a href="TratamientoDeDatos.html">Política de Tratamiento de Datos</a></li>
+    </ul>
+    <p>© 2025 <strong>The SoundGarden</strong>. Todos los derechos reservados.  
+      Diseñado con 💛💙❤️ - desde Armenia, Quindío.</p>
+    <p class="powered-by">Powered by <span>The SoundGarden Team 🐧</span></p>
+  </div>
+  
+<!-- =========================
+   SCRIPT DINÁMICO - SOUNDGARDEN VIVO
+========================= -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hora = new Date().getHours();
+    let mensaje = "";
+    let bgColor = "";
+    let textColor = "";
+    let emoji = "";
+
+    // Mensajes por hora (más humanos, poéticos y musicales)
+    if (hora < 6) {
+      mensaje = "🌅 Aún canta la madrugada... deja que tus ideas despierten contigo.";
+      bgColor = "linear-gradient(90deg, #0d1b2a, #1b263b)";
+      textColor = "#8dd9ff";
+    } else if (hora < 12) {
+      mensaje = "☀️ ¡Buenos días, músico madrugador! Hoy el ritmo lo marcas tú.";
+      bgColor = "linear-gradient(90deg, #f7c948, #f8e16c)";
+      textColor = "#2d2d2d";
+    } else if (hora < 18) {
+      mensaje = "🎶 ¡Buenas tardes! Inspírate y crea algo que haga vibrar al mundo.";
+      bgColor = "linear-gradient(90deg, #f37335, #fdc830)";
+      textColor = "#fffdf5";
+    } else if (hora < 21) {
+      mensaje = "🌇 ¡Atardece! Deja que tu música sea el eco dorado del día.";
+      bgColor = "linear-gradient(90deg, #fc466b, #3f5efb)";
+      textColor = "#f7f7f7";
+    } else {
+      mensaje = "🌙 ¡Buenas noches, alma sonora! No olvides soñar en acordes y silencios.";
+      bgColor = "linear-gradient(90deg, #141e30, #243b55)";
+      textColor = "#c0eaff";
+    }
+
+    // Crear el elemento dinámico
+    const saludo = document.createElement("div");
+    saludo.classList.add("saludo-dinamico");
+    saludo.textContent = mensaje;
+    saludo.style.background = bgColor;
+    saludo.style.color = textColor;
+
+    // Insertar antes del texto legal
+    const infoLegal = document.querySelector(".informacion-legal");
+    if (infoLegal) {
+      infoLegal.prepend(saludo);
+    }
+  });
+</script>
+
+<style>
+.saludo-dinamico {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: aparecerSaludo 1.2s ease-out;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(3px);
+  position: relative;
+  z-index: 5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saludo-dinamico:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Animación de entrada suave */
+@keyframes aparecerSaludo {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</footer>
+
+<!-- =========================
+     SCRIPTS Y FUNCIONALIDAD
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/busqueda.js"></script>
+<!-- Librería SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/ui-helpers.js"></script>
+</body>
+</html>
+

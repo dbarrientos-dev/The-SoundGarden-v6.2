@@ -1,0 +1,105 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+    background-color: #0d0d0d; /* negro profundo */
+    font-family: "Playfair Display", serif; /* elegante y formal */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f5c518; /* dorado elegante */
+}
+
+/* Contenedor principal */
+form {
+    background-color: #1a1a1a;
+    border: 1px solid #f5c518;
+    width: 350px;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(245, 197, 24, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+.tituloo {
+    font-size: 2rem;
+    color: #f5c518;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+/* Etiquetas */
+label {
+    font-size: 0.95rem;
+    color: #f5c518;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+/* Inputs */
+input[type="number"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #f5c518;
+    color: #f5c518;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+/* Botón */
+button {
+    background-color: #f5c518;
+    color: #0d0d0d;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #0d0d0d;
+    transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .tituloo {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}

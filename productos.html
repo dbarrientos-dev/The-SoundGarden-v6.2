@@ -1,0 +1,2759 @@
+<!DOCTYPE html>
+<html lang="es">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://thesoundgarden.com/">
+  <meta name="author" content="The SoundGarden Team">
+
+
+  <!-- Preload de imágenes  -->
+  <link rel="preload" as="image" href="img/favicon.png">
+
+  <!-- =========================================
+       BIBLIOTECAS Y FRAMEWORKS CSS
+  ========================================== -->
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css">
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome (íconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Leaflet (mapas interactivos) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <!-- Estilos principales -->
+  <link rel="preload" href="css/index.css" as="style">
+  <!--Vínculación al CSS EXTERNO-->
+  <link rel="stylesheet" href="css/index.css">
+
+  <!-- =========================
+       FAVICONS
+  ========================== -->
+  <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="SoundGarden">
+  <link rel="manifest" href="documents/site.webmanifest">
+  <title>Productos - The SoundGarden</title>
+</head>
+
+<header>
+  <!-- ===============================================
+     SALUDO JS PARA LOS USUARIOS DE THE SOUNDGARDEN
+==================================================== -->
+
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  const hora = new Date().getHours();
+  let saludo, colorFondo;
+
+  if (hora < 12) {
+    saludo = "☀️ ¡Buenos días, músico! Empieza tu día con el ritmo en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #ffafbd, #ffc3a0)";
+  } else if (hora < 19) {
+    saludo = " 🌵 ¡Buenas tardes! Descubre algunos instrumentos hechos con alma cuyabra.";
+    colorFondo = "linear-gradient(90deg, #89f7fe, #66a6ff)";
+  } else {
+    saludo = "🌙 ¡Buenas noches, artista! La inspiración no duerme en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #2b5876, #4e4376)";
+  }
+
+  const saludoBanner = document.createElement("div");
+  saludoBanner.innerHTML = `<strong>${saludo}</strong>`;
+  saludoBanner.style.cssText = `
+    background: ${colorFondo};
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+    animation: aparecer 1.2s ease-out forwards;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  `;
+
+  document.body.prepend(saludoBanner);
+});
+
+// Animación de aparición suave
+const estiloAnimacion = document.createElement("style");
+estiloAnimacion.textContent = `
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(estiloAnimacion);
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+    Swal.fire({
+      title: "⚡ ¡BIENVENIDO, FORASTERO DE THE SOUNDGARDEN! ⚡",
+      text: "Prepara tus sentidos... las cuerdas vibran, los amplis rugen y el escenario te espera.",
+      icon: "info",
+      confirmButtonText: "ENTRAR AL RUIDO 🤘",
+      confirmButtonColor: "#C41E3D",  
+      background: "#0A0A0A",          // Fondo negro absoluto
+      color: "#E5E5E5",              
+      imageUrl: "gifs/G1.gif",        // Solo un GIF principal
+      imageWidth: 320,
+      imageAlt: "Guitarrista delineado en blanco tocando sobre fondo negro",
+      backdrop: `
+        rgba(0,0,0,0.9)
+      `,
+      customClass: {
+        title: "swal2-title-metal",
+        confirmButton: "swal2-confirm-metal"
+      }
+    });
+  });
+</script>
+
+   <!-- =========================
+       ENCABEZADO PRINCIPAL
+  ========================== -->
+  <header class="encabezado-sitio">
+    <div class="header-contenedor">
+      
+      <!-- LOGO -->
+      <div class="logo-nombre">
+        <a href="index.html" aria-label="Ir al inicio">
+          <img src="img/favicon-96x96.png" alt="Logo de The SoundGarden" class="logo" loading="lazy">
+        </a>
+      </div>
+
+     <!-- NAVEGACIÓN -->
+      <nav class="navbarra" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="testimoniales.html">Testimonios</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="Nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="Login.html">Acceder</a></li>
+        </ul>
+      </nav>
+
+     <!-- =========================
+     CARRITO, BÚSQUEDA Y CONFIGURACIÓN
+========================= -->
+<div class="acciones-usuario">
+  
+  <!-- BÚSQUEDA -->
+  <form id="form-buscar" role="search">
+    <input 
+      type="search" 
+      id="buscar-producto"
+      placeholder="Buscar productos..." 
+      aria-label="Buscar productos" 
+    />
+    <button type="submit" aria-label="Buscar">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+
+<!-- CARRITO -->
+<a href="pedidos.html" aria-label="Ver carrito">
+  <button id="btn-carrito">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+</a>
+
+<!-- === MENÚ DE CONFIGURACIÓN (versión optimizada y funcional) === -->
+<div class="config-menu">
+  <button id="btn-config" aria-label="Abrir configuración" aria-expanded="false">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div id="menu-config" class="menu-oculto">
+    <ul>
+      <li><a href="login.html"> 🗝️ Iniciar Sesión</a></li>
+      <li><a href="php/administrar.html">📠 Administrar</a></li>
+      <li><a href="contacto.html">🧭 Ayuda </a></li>
+      <li><a href="cuenta.html">🎯 Mi Cuenta</a></li>
+      <li><a href="Cerrarlogin.html">🚪 Salir</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<style>
+
+    /* ========================================================
+  
+        FONDO QUE VA A CUBRIR TODA LA PANTALLA DEL SITIO WEB
+
+===============================================================*/
+
+body {
+  background: url("img/fondonegro.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed; /* esto va a hacer que se baje suave a hacer scroll */
+}
+</style>
+
+<style>
+/* === CONTENEDOR GENERAL === */
+.config-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  z-index: 9999;
+}
+
+/* === BOTÓN === */
+#btn-config {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#btn-config:hover {
+  transform: rotate(45deg);
+  color: #f4c542;
+}
+
+/* === MENÚ === */
+#menu-config {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostrar menú */
+#menu-config.menu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* === ITEMS === */
+#menu-config ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-config li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+#menu-config li:last-child {
+  border-bottom: none;
+}
+
+#menu-config a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+#menu-config a:hover {
+  color: #ff6600;
+}
+</style>
+
+<script>
+  
+// === MENÚ DE CONFIGURACIÓN ===
+const btnConfig = document.getElementById('btn-config');
+const menuConfig = document.getElementById('menu-config');
+
+btnConfig.addEventListener('click', () => {
+  const visible = menuConfig.classList.toggle('menu-visible');
+  btnConfig.setAttribute('aria-expanded', visible);
+});
+
+// Cierra el menú si se hace clic fuera
+window.addEventListener('click', (e) => {
+  if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
+    menuConfig.classList.remove('menu-visible');
+    btnConfig.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+
+</header>
+<body>
+<main id="contenido-principal">
+
+<!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================== -->
+
+
+<!-- Frase principal -->
+<em class="nirvana-frase" aria-hidden="true">
+  ⊹ ࣪ ˖ ESTÁS CAYENDO AL NIRVANA DE LOS INSTRUMENTOS, LUGAR EN DONDE NACE EL SONIDO ✮⋆˙
+</em>
+
+<style>
+.nirvana-frase {
+  display: block;
+  text-align: center;
+  font-style: normal;
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px #ff80bf;
+  margin: 20px 0;
+}
+</style>
+
+<main class="main-content">
+  <section class="container-features">
+    <div class="card-feature">
+      <i class="fa-solid fa-truck"></i>
+      <div class="feature-content">
+        <span>Envíos nacionales 🇨🇴</span>
+        <p>Sin importar si estás en Cali o Santander</p>
+      </div>
+    </div>
+
+    <div class="card-feature">
+      <i class="fa-solid fa-wallet"></i>
+      <div class="feature-content">
+        <span>Contrareembolso 💸</span>
+        <p>100% garantía de devolución de dinero</p>
+      </div>
+    </div>
+
+    <div class="card-feature">
+      <i class="fa-solid fa-headset"></i>
+      <div class="feature-content">
+        <span>Servicio al cliente 24/7 😎</span>
+        <p>Llámenos 24/7 al +57 321 3458873</p>
+      </div>
+    </div>
+
+    <div class="card-feature">
+      <i class="fa-solid fa-star"></i>
+      <div class="feature-content">
+        <span>Productos de calidad 💥</span>
+        <p>Probados, resistentes, y todo terreno</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+/* ===== SECCIÓN DE CARACTERÍSTICAS ===== */
+.main-content {
+  background: #0e0e0e;
+  padding: 4rem 1rem;
+  color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor general */
+.container-features {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Tarjetas individuales */
+.card-feature {
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  flex: 1 1 calc(25% - 2rem); /* ✅ 4 en fila horizontal */
+  min-width: 220px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.card-feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+  border-color: #ff4500; /* acento naranja/rojo */
+}
+
+/* Iconos */
+.card-feature i {
+  font-size: 2.5rem;
+  color: #d4af37;
+  transition: color 0.3s ease;
+  margin-bottom: 0.8rem;
+}
+
+.card-feature:hover i {
+  color: #ff6347;
+}
+
+/* Texto */
+.feature-content span {
+  display: block;
+  font-weight: 700;
+  color: #ffd700;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+.feature-content p {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+/* Adaptabilidad móvil */
+@media (max-width: 900px) {
+  .card-feature {
+    flex: 1 1 calc(50% - 1rem); /* 2 por fila */
+  }
+}
+
+@media (max-width: 600px) {
+  .container-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-feature {
+    width: 90%;
+  }
+
+  .card-feature i {
+    margin-bottom: 0.5rem;
+  }
+}
+</style>
+
+  <section class="galeria">
+    <h2>Instrumentos Destacados</h2>
+
+    <div class="filtros">
+      <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+      <button class="btn-filtro" data-categoria="guitarras">Guitarras</button>
+      <button class="btn-filtro" data-categoria="bajos">Bajos</button>
+      <button class="btn-filtro" data-categoria="baterias">Baterías</button>
+      <button class="btn-filtro" data-categoria="efectos">Efectos</button>
+    </div>
+
+    <div class="productos">
+      <div class="producto" data-categoria="guitarras">
+        <img src="img/guitarra.jpg" alt="Guitarra eléctrica">
+        <h3>Guitarra Eléctrica</h3>
+        <p>$1.200.000</p>
+      </div>
+
+      <div class="producto" data-categoria="bajos">
+        <img src="img/bajo33.jpeg" alt="Bajo clásico">
+        <h3>Bajo Clásico</h3>
+        <p>$950.000</p>
+      </div>
+
+      <div class="producto" data-categoria="baterias">
+        <img src="img/bateria.jpg" alt="Batería acústica">
+        <h3>Batería Acústica</h3>
+        <p>$2.300.000</p>
+      </div>
+
+      <div class="producto" data-categoria="efectos">
+        <img src="img/pedal.jpg" alt="Pedal de distorsión">
+        <h3>Pedal de Distorsión</h3>
+        <p>$350.000</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+const botonesFiltro = document.querySelectorAll('.btn-filtro');
+const productos = document.querySelectorAll('.producto');
+botonesFiltro.forEach(boton => {
+  boton.addEventListener('click', () => {
+    botonesFiltro.forEach(b => b.classList.remove('activo'));
+    boton.classList.add('activo');
+    const categoria = boton.dataset.categoria;
+    productos.forEach(producto => {
+      if (categoria === 'todos' || producto.dataset.categoria === categoria) {
+        producto.style.display = 'block';
+      } else {
+        producto.style.display = 'none';
+      }
+    });
+  });
+});
+
+  </script>
+
+  <style>
+.galeria {
+  background: #0e0e0e;
+  color: #f5f5f5;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
+
+.galeria h2 {
+  font-size: 2.4rem;
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.filtros {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-filtro {
+  background: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+  background: #ff6600;
+  color: #fff;
+  border-color: #ff6600;
+  transform: translateY(-3px);
+}
+
+.btn-filtro.activo {
+  background: #d4af37;
+  color: #0e0e0e;
+  border-color: #d4af37;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.producto {
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 14px;
+  overflow: hidden;
+  width: 250px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 69, 0, 0.5);
+  border-color: #ff4500;
+}
+
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.08);
+}
+
+.producto h3 {
+  font-size: 1.1rem;
+  color: #ffd700;
+  margin-top: 0.8rem;
+}
+
+.producto p {
+  color: #ff6347;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .producto {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .producto {
+    width: 90%;
+  }
+}
+</style>
+
+<style>
+
+  /* ============================
+   ESPACIADO ENTRE SECCIONES
+   ============================ */
+
+section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+</style>
+|
+<style>
+/* === CONTENEDOR GENERAL === */
+.config-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  z-index: 9999;
+}
+
+/* === BOTÓN === */
+#btn-config {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#btn-config:hover {
+  transform: rotate(45deg);
+  color: #f4c542;
+}
+
+/* === MENÚ === */
+#menu-config {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostrar menú */
+#menu-config.menu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* === ITEMS === */
+#menu-config ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-config li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+#menu-config li:last-child {
+  border-bottom: none;
+}
+
+#menu-config a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+#menu-config a:hover {
+  color: #ff6600;
+}
+</style>
+
+<script>
+// === FUNCIONALIDAD DEL MENÚ DE CONFIGURACIÓN ===
+const btnConfigs = document.getElementById('btn-config');
+const menuConfigs = document.getElementById('menu-config');
+
+btnConfig.addEventListener('click', () => {
+  const visible = menuConfig.classList.toggle('menu-visible');
+  btnConfig.setAttribute('aria-expanded', visible);
+});
+
+// Cierra el menú si se hace clic fuera
+window.addEventListener('click', (e) => {
+  if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
+    menuConfig.classList.remove('menu-visible');
+    btnConfig.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+
+  <!-- =====================================================
+GALERÍA DE INSTRUMENTOS Y ARTISTAS — THE SOUNDGARDEN
+===================================================== -->
+<main class="galeria" aria-label="Galería visual de The Soundgarden">
+  <style>
+    .galeria {
+      font-family: 'Poppins', sans-serif;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .galeria h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #111;
+      letter-spacing: 1px;
+    }
+
+    .galeria p.intro {
+      text-align: center;
+      color: #555;
+      margin-bottom: 50px;
+      font-size: 1.1em;
+    }
+
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .galeria-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .galeria-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .galeria-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.95em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .galeria-item:hover .galeria-info {
+      opacity: 1;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .lightbox i {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2em;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .galeria-categorias {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .galeria-categorias button {
+      background: none;
+      border: 2px solid #e91e63;
+      color: #e91e63;
+      border-radius: 25px;
+      padding: 8px 18px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+    }
+
+    .galeria-categorias button:hover {
+      background: #e91e63;
+      color: #fff;
+    }
+
+    .galeria-categorias button.activo {
+      background: #e91e63;
+      color: #fff;
+    }
+  </style>
+
+  <h1><i class="fa-solid fa-camera-retro"></i> Galería de Sonido y Escena</h1>
+  <p class="intro">
+    Bienvenido a <strong>The Soundgarden</strong>: donde cada cuerda vibra con historia,  
+    cada amplificador respira energía, y cada músico deja huella en el escenario.  
+    Explora nuestras imágenes y vive la cultura del sonido.
+  </p>
+
+  <div class="galeria-categorias" aria-label="Categorías de galería">
+    <button class="activo" data-filtro="todo">Todo</button>
+    <button data-filtro="guitarras">Guitarras</button>
+    <button data-filtro="bajos">Bajos</button>
+    <button data-filtro="amplificadores">Amplificadores</button>
+    <button data-filtro="artistas">Artistas</button>
+  </div>
+
+  <div class="grid-galeria">
+    <div class="galeria-item" data-categoria="guitarras">
+      <img src="img/Guitarra Electrica Tipo Stratocaster Estuche Cable + Correa.webp" alt="Guitarra Stratocaster Sunburst">
+      <div class="galeria-info"><i class="fa-solid fa-guitar"></i> Stratocaster Sunburst</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="bajos">
+      <img src="img/Bajo Fender Jazz Bass.jpg" alt="Fender American Jazz Bass">
+      <div class="galeria-info"><i class="fa-solid fa-headphones"></i> Fender Jazz Bass Pro</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="amplificadores">
+      <img src="img/amplificador.jpg" alt="Amplificador Marshall Vintage">
+      <div class="galeria-info"><i class="fa-solid fa-bolt"></i> Marshall Vintage Reissue</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="artistas">
+      <img src="img/bajista-en-un-escenario-con-un-conjunto-de-pedales-de-efectos-de-distorsion.jpg" alt="Músico tocando en vivo con guitarra Gibson">
+      <div class="galeria-info"><i class="fa-solid fa-music"></i> En vivo: Rock en su máxima expresión</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="guitarras">
+      <img src="img/Guitarra Gibson Les Paul Goldtop.jpg" alt="Guitarra Gibson Les Paul Goldtop">
+      <div class="galeria-info"><i class="fa-solid fa-guitar"></i> Gibson Les Paul Goldtop</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="bajos">
+      <img src="img/Precision Bass 70s Edition.jpg" alt="Bajo Precision Bass">
+      <div class="galeria-info"><i class="fa-solid fa-headphones-simple"></i> Precision Bass 70s Edition</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="artistas">
+      <img src="img/Julian.jpg" alt="Guitarrista en escenario iluminado">
+      <div class="galeria-info"><i class="fa-solid fa-microphone-lines"></i> Guitarrista de la casa: energía pura</div>
+    </div>
+
+    <div class="galeria-item" data-categoria="amplificadores">
+      <img src="img/Orange Crush 2x12 Cabinet.jpg" alt="Amplificador Orange con gabinete 2x12">
+      <div class="galeria-info"><i class="fa-solid fa-volume-high"></i> Orange Crush 2x12 Cabinet</div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <i class="fa-solid fa-xmark" id="cerrar-lightbox"></i>
+    <img src="" alt="Imagen ampliada">
+  </div>
+
+  <script>
+    // Filtro por categorías
+    const botones = document.querySelectorAll('.galeria-categorias button');
+    const items = document.querySelectorAll('.galeria-item');
+
+    botones.forEach(boton => {
+      boton.addEventListener('click', () => {
+        botones.forEach(b => b.classList.remove('activo'));
+        boton.classList.add('activo');
+
+        const filtro = boton.getAttribute('data-filtro');
+
+        items.forEach(item => {
+          if (filtro === 'todo' || item.dataset.categoria === filtro) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox (ampliar imagen)
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const cerrarBtn = document.getElementById('cerrar-lightbox');
+
+    document.querySelectorAll('.galeria-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    cerrarBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</main>
+
+<main>
+  <section class="carousel-banner" aria-labelledby="carousel-title">
+    <header class="carousel-header">
+      <h2 id="carousel-title" class="carousel-title">
+        Explora nuestra colección para músicos de verdad — somos el sonido que inspira
+      </h2>
+      <p class="carousel-subtitle">
+        Guitarras, bajos y equipos que hacen vibrar el alma.
+      </p>
+    </header>
+
+    <div class="carousel-container">
+      <button class="carousel-button prev" aria-label="Anterior">&#10094;</button>
+
+      <div class="carousel-window">
+        <div class="carousel-track" id="track">
+          <!-- 🎸 Producto 1 -->
+          <article class="carousel-slide activo"
+            data-descripcion="Guitarra eléctrica Yamaha RGX121Z"
+            data-precio="$1.200.000">
+            <figure>
+              <img src="img/Yamaha RGX121Z Flat Silver.jpg" alt="Guitarra eléctrica Yamaha RGX121Z">
+              <figcaption>Yamaha RGX121Z</figcaption>
+            </figure>
+          </article>
+
+          <!-- 🔊 Producto 2 -->
+          <article class="carousel-slide"
+            data-descripcion="Amplificador Yamaha Ga15ii"
+            data-precio="$980.000">
+            <figure>
+              <img src="img/Amplificador Yamaha Ga15ii2.jpg" alt="Amplificador Yamaha Ga15ii">
+              <figcaption>Amplificador Ga15ii</figcaption>
+            </figure>
+          </article>
+
+          <!-- 🎧 Producto 3 -->
+          <article class="carousel-slide"
+            data-descripcion="Audífonos Audio-Technica ATH-M50x"
+            data-precio="$1.100.000">
+            <figure>
+              <img src="img/ATH-M50x1.jpg" alt="Audífonos Audio-Technica ATH-M50x">
+              <figcaption>Audio-Technica ATH-M50x</figcaption>
+            </figure>
+          </article>
+
+          <!-- 🎹 Producto 4 -->
+          <article class="carousel-slide"
+            data-descripcion="Teclado Casio CT-X700"
+            data-precio="$1.500.000">
+            <figure>
+              <img src="img/Casio CT-X700.jpg" alt="Teclado Casio CT-X700">
+              <figcaption>Casio CT-X700</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+
+      <button class="carousel-button next" aria-label="Siguiente">&#10095;</button>
+    </div>
+
+    <!-- 🔽 Información dinámica del producto -->
+    <div class="carousel-info" id="carousel-info">
+      <h3 id="producto-descripcion">Guitarra eléctrica Yamaha RGX121Z</h3>
+      <p id="producto-precio">$1.200.000</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+  </section>
+</main>
+
+<style>
+/* ==== SECCIÓN TIPO BANNER === */
+.carousel-banner {
+  width: 100%;
+  min-height: 80vh; /* Altura tipo banner */
+  background: linear-gradient(to right, #111, #1a1a1a);
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Título y subtítulo */
+.carousel-header {
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+.carousel-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #f1faee;
+}
+.carousel-subtitle {
+  color: #a8dadc;
+  font-size: 1.2rem;
+}
+
+/* Carrusel */
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-window {
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+/* Cada slide más grande */
+.carousel-slide {
+  flex: 0 0 400px;
+  background: #1d1d1d;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: #0a0a0a;
+}
+
+.carousel-slide.activo {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(230, 57, 70, 0.7);
+}
+
+/* Botones */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(230, 57, 70, 0.9);
+  color: white;
+  border: none;
+  font-size: 2.5rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+.carousel-button:hover {
+  background: #ff6b6b;
+}
+.carousel-button.prev { left: 1rem; }
+.carousel-button.next { right: 1rem; }
+
+/* Info inferior */
+.carousel-info {
+  margin-top: 2.5rem;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.3);
+}
+.btn-comprar {
+  background: #e63946;
+  border: none;
+  color: white;
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.btn-comprar:hover {
+  background: #ff4d4d;
+}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById("track");
+  const slides = Array.from(track.children);
+  const btnPrev = document.querySelector(".carousel-button.prev");
+  const btnNext = document.querySelector(".carousel-button.next");
+  const infoNombre = document.getElementById("producto-descripcion");
+  const infoPrecio = document.getElementById("producto-precio");
+
+  let indiceActual = 0;
+  let intervalo = null;
+
+  // Función para calcular el ancho dinámico del slide
+  function obtenerAnchoSlide() {
+    const slide = slides[0];
+    if (!slide) return 0;
+    const estilo = window.getComputedStyle(slide);
+    const gap = 24; // Espacio entre tarjetas (debe coincidir con el CSS)
+    return slide.offsetWidth + gap;
+  }
+
+  // Actualiza la posición y los datos del carrusel
+  function actualizarCarrusel() {
+    const desplazamiento = indiceActual * obtenerAnchoSlide();
+    track.style.transform = `translateX(-${desplazamiento}px)`;
+
+    slides.forEach(slide => slide.classList.remove("activo"));
+    const activo = slides[indiceActual];
+    if (activo) {
+      activo.classList.add("activo");
+      infoNombre.textContent = activo.dataset.descripcion || "";
+      infoPrecio.textContent = activo.dataset.precio || "";
+    }
+  }
+
+  // Navegación manual
+  function siguiente() {
+    indiceActual = (indiceActual + 1) % slides.length;
+    actualizarCarrusel();
+  }
+
+  function anterior() {
+    indiceActual = (indiceActual - 1 + slides.length) % slides.length;
+    actualizarCarrusel();
+  }
+
+  // Controles
+  if (btnNext) btnNext.addEventListener("click", () => {
+    siguiente();
+    reiniciarAutoPlay();
+  });
+
+  if (btnPrev) btnPrev.addEventListener("click", () => {
+    anterior();
+    reiniciarAutoPlay();
+  });
+
+  // Reproducción automática
+  function iniciarAutoPlay() {
+    if (intervalo) clearInterval(intervalo);
+    intervalo = setInterval(siguiente, 4000);
+  }
+
+  function reiniciarAutoPlay() {
+    clearInterval(intervalo);
+    iniciarAutoPlay();
+  }
+
+  // Pausa al pasar el mouse
+  track.addEventListener("mouseenter", () => clearInterval(intervalo));
+  track.addEventListener("mouseleave", iniciarAutoPlay);
+
+  // Recalcular al cambiar el tamaño de la ventana
+  window.addEventListener("resize", () => {
+    actualizarCarrusel();
+  });
+
+  // Iniciar
+  actualizarCarrusel();
+  iniciarAutoPlay();
+});
+</script>
+
+<br><br><br>
+
+<style>
+
+.productos {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2rem; /* separación entre tarjetas */
+  padding: 2rem;
+  overflow-x: auto; /* permite desplazamiento horizontal */
+  scroll-behavior: smooth;
+  white-space: nowrap; /* evita que se vayan hacia abajo */
+}
+
+/* Opcional: oculta la barra de scroll en navegadores modernos */
+.productos::-webkit-scrollbar {
+  height: 10px;
+}
+.productos::-webkit-scrollbar-thumb {
+  background: #ff6600;
+  border-radius: 10px;
+}
+.productos::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+/* Estilo base de cada tarjeta o bloque de producto */
+.producto {
+  flex: 0 0 280px; /* ancho fijo, sin ajuste automático */
+  background: #111;
+  border: 1px solid rgba(255, 102, 0, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+}
+
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.producto h3 {
+  color: #ff6600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.producto p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+</style>
+<!-- Productos -->
+<!-- 🛍️ Sección de productos -->
+<main class="container my-5">
+  <h2 class="text-center mb-4">Nuestros Productos</h2>
+
+  <div class="row">
+
+    <!-- Producto 1 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Femmto&Accesorios&Amplificador.webp" class="card-img-top" alt="Guitarra Femmto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Eléctrica Femmto con Amplificador y Accesorios</h5>
+          <p class="card-text">$1.200.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/guitarra-electrica-gibson-les-paul-classic-trnsluct-lpcs00trnh-the-music-site-1.webp" class="card-img-top" alt="Gibson Les Paul">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Eléctrica Gibson Les Paul Classic</h5>
+          <p class="card-text">$12.500.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/ibanez-grx70qa-tks-A.jpg" class="card-img-top" alt="Ibanez Gio">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Ibanez Gio GRX70QA</h5>
+          <p class="card-text">$1.800.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/GB4032.webp" class="card-img-top" alt="Bajo Fender">
+        <div class="card-body text-center">
+          <h5 class="card-title">Bajo Fender Squier Classic Vibes 70s</h5>
+          <p class="card-text">$2.500.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/YamahaPacifica.webp" class="card-img-top" alt="Yamaha Pacifica">
+        <div class="card-body text-center">
+          <h5 class="card-title">Guitarra Yamaha Pacifica 112V</h5>
+          <p class="card-text">$2.300.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Fender Stratocaster Player Series.jpg" class="card-img-top" alt="Fender Stratocaster">
+        <div class="card-body text-center">
+          <h5 class="card-title">Fender Stratocaster Player Series</h5>
+          <p class="card-text">$4.500.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 7 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/hirasawa2.webp" class="card-img-top" alt="Les Paul Cherry Sunburst">
+        <div class="card-body text-center">
+          <h5 class="card-title">Les Paul Cherry Sunburst</h5>
+          <p class="card-text">$9.700.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 8 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Batería Tama Imperialstar 5 piezas.webp" class="card-img-top" alt="Batería Tama">
+        <div class="card-body text-center">
+          <h5 class="card-title">Batería Tama Imperialstar 5 piezas</h5>
+          <p class="card-text">$6.800.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 9 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/BateriaPearlGrindstoneSpakie.webp" class="card-img-top" alt="Batería Pearl">
+        <div class="card-body text-center">
+          <h5 class="card-title">Batería Pearl Grindstone Sparkle</h5>
+          <p class="card-text">$7.200.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 10 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Bajo Ibanez SR300EV.webp" class="card-img-top" alt="Bajo Ibanez">
+        <div class="card-body text-center">
+          <h5 class="card-title">Bajo Ibanez SR300E</h5>
+          <p class="card-text">$2.900.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 11 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Fender Jazz Bass Standard.webp" class="card-img-top" alt="Fender Jazz Bass">
+        <div class="card-body text-center">
+          <h5 class="card-title">Fender Jazz Bass Standard</h5>
+          <p class="card-text">$4.200.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 12 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Fender_PrecisionBass_Standard_Sunburst_700x700.webp" class="card-img-top" alt="Fender Precision Bass">
+        <div class="card-body text-center">
+          <h5 class="card-title">Fender Precision Bass</h5>
+          <p class="card-text">$4.800.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 13 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/teclado-roland-go-keys-go-61k-.jpg" class="card-img-top" alt="Teclado Roland">
+        <div class="card-body text-center">
+          <h5 class="card-title">Teclado Roland GO:Keys</h5>
+          <p class="card-text">$2.200.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 14 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/PIANO-DIGITAL-YAMAHA-P-145-Colombia.png" class="card-img-top" alt="Piano Yamaha">
+        <div class="card-body text-center">
+          <h5 class="card-title">Piano Digital Yamaha P145</h5>
+          <p class="card-text">$3.200.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 15 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Korg-Kross-2-61-imagen-2.jpg" class="card-img-top" alt="Korg Kross">
+        <div class="card-body text-center">
+          <h5 class="card-title">Workstation Korg Kross 2 61</h5>
+          <p class="card-text">$4.900.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 16 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/cajon.jpg" class="card-img-top" alt="Cajón flamenco">
+        <div class="card-body text-center">
+          <h5 class="card-title">Cajón Flamenco Profesional MEINL</h5>
+          <p class="card-text">$600.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 17 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Congas2.webp" class="card-img-top" alt="Congas LP">
+        <div class="card-body text-center">
+          <h5 class="card-title">Juego de Congas LP Aspire</h5>
+          <p class="card-text">$1.900.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 18 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/bongo.webp" class="card-img-top" alt="Bongó">
+        <div class="card-body text-center">
+          <h5 class="card-title">Bongó Profesional</h5>
+          <p class="card-text">$850.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 19 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/Maracas2.jpg" class="card-img-top" alt="Maracas">
+        <div class="card-body text-center">
+          <h5 class="card-title">Maracas Tradicionales</h5>
+          <p class="card-text">$120.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 20 -->
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+        <img src="img/microfono.jpg" class="card-img-top" alt="Micrófono Shure">
+        <div class="card-body text-center">
+          <h5 class="card-title">Micrófono Shure SM58</h5>
+          <p class="card-text">$600.000 COP</p>
+          <a href="#" class="btn btn-dark">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+</main>
+
+<br><br><br>
+
+
+<style>
+/* 🎸 CSS — 4 productos por fila fijos */
+
+/* Contenedor principal */
+main.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Título */
+main h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #111;
+  font-weight: bold;
+}
+
+/* Fila de productos */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Cada producto (4 por fila exactos) */
+.col-md-3 {
+  flex: 0 0 calc(25% - 15px);
+  box-sizing: border-box;
+}
+
+/* Tarjetas */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  height: 100%;
+}
+
+/* Efecto hover */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen del producto */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Cuerpo */
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+  height: 45px;
+  overflow: hidden;
+}
+
+.card-text {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  background-color: #222;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #ff4d4d;
+}
+
+/* Opcional: para pantallas muy pequeñas, que no se rompa */
+@media (max-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 calc(50% - 15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .col-md-3 {
+    flex: 0 0 100%;
+  }
+}
+
+</style>
+
+
+</style>
+
+<!--fin del carrusel-->
+<style>
+
+
+  /* ============================
+   ESPACIADO ENTRE SECCIONES
+   ============================ */
+
+section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* ==============================================
+   🌐 ESTILO GENERAL PARA ESTRUCTURAS EN REJILLA
+   ============================================== */
+
+/* Ajustes globales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000000;
+  color: #222;
+}
+
+/* Contenedores principales */
+section, main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Títulos de sección */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Rejilla base — 4 o 5 por fila según ancho */
+.grid-4,
+.grid-5 {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* 4 columnas por fila */
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* 5 columnas por fila */
+.grid-5 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Tarjetas reutilizables */
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Contenido interno */
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  background-color: #111;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #ff4d4d;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .grid-4,
+  .grid-5 {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-4,
+  .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+</style>
+
+<!-- 🛍️ CONTENEDOR DEL CARRITO -->
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .carrito-contenedor {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .btn-fijo {
+      background: #222;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-fijo:hover {
+      background: #444;
+      transform: scale(1.05);
+    }
+
+    #carrito {
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 15px;
+      width: 260px;
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      display: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .carrito-visible {
+      display: block;
+    }
+
+    .btn-vaciar {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .productos {
+      margin-top: 50px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .producto {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      width: 200px;
+      background: white;
+    }
+
+    .btn-agregar {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-agregar:hover {
+      background: #444;
+    }
+  </style>
+
+<style>
+  body {
+    background: #000000;
+  }
+  .oferta-card {
+    border: 2px solid #FF0000;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: rgba(0,0,0,0.5);
+  }
+  .oferta-card:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0,0,0,1);
+  }
+  .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FF0000;
+  }
+  .precio-descuento {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 1rem;
+  }
+  .btn-comprar {
+    background: #FF0000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+  .btn-comprar:hover {
+    background: #FF6B00;
+    transform: scale(1.1);
+  }
+</style>
+<section class="promociones my-5">
+  <div class="container text-center">
+    <h2 class="mb-4 fw-bold text-uppercase">
+      ¡Mira estas promociones de locura solo en tu tienda de confianza: The Soundgarden!
+    </h2>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Producto 1 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="img/Puas de plata.jpg" class="card-img-top" alt="Púas de plata">
+          <div class="card-body">
+            <h5 class="card-title">¡Púas de plata con un 70% de descuento!</h5>
+            <p class="card-text text-muted mb-1">$20.000 COP</p>
+            <p class="mb-2">Stock: <span class="fw-bold cantidad-stock">10</span></p>
+            <button class="btn btn-dark w-100 add-to-cart">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="img/Cuerdas de acero.webp" class="card-img-top" alt="Cuerdas de acero para guitarra eléctrica">
+          <div class="card-body">
+            <h5 class="card-title">Cuerdas de acero — tono brillante y duradero</h5>
+            <p class="card-text text-muted mb-1">$35.000 COP</p>
+            <p class="mb-2">Stock: <span class="fw-bold cantidad-stock">15</span></p>
+            <button class="btn btn-dark w-100 add-to-cart">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="img/Baquetas maple.png" class="card-img-top" alt="Baquetas de maple">
+          <div class="card-body">
+            <h5 class="card-title">Baquetas de maple — ligeras, precisas </h5>
+            <p class="card-text text-muted mb-1">$28.000 COP</p>
+            <p class="mb-2">Stock: <span class="fw-bold cantidad-stock">12</span></p>
+            <button class="btn btn-dark w-100 add-to-cart">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="img/Afinador digital.png" class="card-img-top" alt="Afinador digital">
+          <div class="card-body">
+            <h5 class="card-title">Afinador digital — precisión profesional</h5>
+            <p class="card-text text-muted mb-1">$40.000 COP</p>
+            <p class="mb-2">Stock: <span class="fw-bold cantidad-stock">8</span></p>
+            <button class="btn btn-dark w-100 add-to-cart">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="img/pegantinas.jpeg" class="card-img-top" alt="Pegantinas decorativas para guitarra">
+          <div class="card-body">
+            <h5 class="card-title">Pegantinas — personaliza tu guitarra con estilo</h5>
+            <p class="card-text text-muted mb-1">$7.200 COP</p>
+            <p class="mb-2">Stock: <span class="fw-bold cantidad-stock">120</span></p>
+            <button class="btn btn-dark w-100 add-to-cart">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+
+
+<style>
+.promociones {
+  background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 60px 0;
+  border-top: 2px solid #ff3366;
+  border-bottom: 2px solid #ff3366;
+}
+
+.promociones h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  color: #ff3366;
+  text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+  margin-bottom: 2rem;
+}
+
+/* Tarjetas */
+.promociones .card {
+  background-color: #181818;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.promociones .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(255, 51, 102, 0.3);
+  border-color: #ff3366;
+}
+
+/* Imagen del producto */
+.promociones .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Títulos y textos */
+.promociones .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.promociones .card-text {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Stock */
+.promociones .cantidad-stock {
+  color: #ff3366;
+  font-weight: 700;
+}
+
+/* 🛒 Botón */
+.promociones .add-to-cart {
+  background-color: #ff3366;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.promociones .add-to-cart:hover {
+  background-color: #ff5f87;
+  box-shadow: 0 0 10px rgba(255, 51, 102, 0.6);
+}
+
+</style>
+
+<br><br><br>
+
+<!-- =====================================================
+     SECCIÓN NUEVOS LANZAMIENTOS - THE SOUNDGARDEN
+===================================================== -->
+
+<section class="seccion-nuevos">
+  <div class="contenedor">
+    <h2 class="titulo-seccion">
+      <i class="fas fa-seedling"></i> Nuevos Sonidos Que Acaban de Florecer
+    </h2>
+
+    <p class="intro-nuevos">
+      Cada creación reciente de <strong>The SoundGarden</strong> germina entre la precisión de la ingeniería y la pasión del arte.  
+      Instrumentos concebidos no solo para tocar, sino para sentir el pulso vivo de la música.
+    </p>
+
+    <div class="contenedor-productos-nuevos">
+      
+      <!-- Producto 1 -->
+      <article class="tarjeta-nuevo">
+        <div class="etiqueta-nuevo">Nuevo</div>
+        <img src="img/guitarra1.jpg" alt="Guitarra acústica artesanal" class="img-nuevo">
+        <h3 class="nombre-nuevo">Guitarra Acústica Raíz</h3>
+        <p class="descripcion-nuevo">
+          Maderas nobles, tono profundo y una resonancia que evoca los primeros acordes del alma.
+        </p>
+        <a href="#" class="btn-vermas">
+          <i class="fas fa-music"></i> Ver más
+        </a>
+      </article>
+
+      <!-- Producto 2 -->
+      <article class="tarjeta-nuevo">
+        <div class="etiqueta-nuevo">Nuevo</div>
+        <img src="img/bajo.jpg" alt="Bajo eléctrico de nogal" class="img-nuevo">
+        <h3 class="nombre-nuevo">Bajo Eléctrico Ámbar</h3>
+        <p class="descripcion-nuevo">
+          Frecuencias limpias, cálidas y potentes. Hecho para quienes llevan el ritmo en la sangre.
+        </p>
+        <a href="#" class="btn-vermas">
+          <i class="fas fa-guitar"></i> Ver más
+        </a>
+      </article>
+
+      <!-- Producto 3 -->
+      <article class="tarjeta-nuevo">
+        <div class="etiqueta-nuevo">Nuevo</div>
+        <img src="img/amplificador.jpg" alt="Amplificador de válvulas artesanal" class="img-nuevo">
+        <h3 class="nombre-nuevo">Amplificador “Solaris”</h3>
+        <p class="descripcion-nuevo">
+          Un rugido cálido, con alma de válvulas y precisión moderna. Potencia sin perder humanidad.
+        </p>
+        <a href="#" class="btn-vermas">
+          <i class="fas fa-bolt"></i> Ver más
+        </a>
+      </article>
+
+      <!-- Producto 4 -->
+      <article class="tarjeta-nuevo">
+        <div class="etiqueta-nuevo">Nuevo</div>
+        <img src="img/pedal.jpg" alt="Pedal de efectos analógico" class="img-nuevo">
+        <h3 class="nombre-nuevo">Pedal “Bloom Echo”</h3>
+        <p class="descripcion-nuevo">
+          Eco analógico con matices orgánicos: cada nota se expande como una hoja al viento.
+        </p>
+        <a href="#" class="btn-vermas">
+          <i class="fas fa-wave-square"></i> Ver más
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- 🏷️ Banner principal -->
+<section class="banner">
+  <div class="banner-contenido">
+    <h1>Descubre nuestras mejores ofertas 🎸</h1>
+    <p>Instrumentos, accesorios y sonido al mejor precio.</p>
+    <a href="ofertas.html" class="btn-ofertas">Ver ofertas</a>
+  </div>
+</section>
+
+<br><br><br>
+
+
+<style>
+.banner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(26, 26, 26, 0.9)),
+              url("img/banner-bg.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  border-bottom: 2px solid #d14e1a;
+  overflow: hidden;
+}
+
+/* ✨ Fondo animado sutil */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 51, 102, 0.15) 0%, transparent 70%);
+  animation: pulse 6s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  from { opacity: 0.4; transform: scale(1); }
+  to { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* 🎸 Contenido del banner */
+.banner-contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #ff3366;
+  text-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Botón principal */
+.btn-ofertas {
+  display: inline-block;
+  background: #ff3366;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 51, 102, 0.4);
+}
+
+.btn-ofertas:hover {
+  background: #ff5f87;
+  box-shadow: 0 0 20px rgba(255, 51, 102, 0.7);
+  transform: translateY(-3px);
+}
+
+</style>
+
+
+<br><br><br>
+
+<style>
+
+/* ==============================================
+   SECCIÓN NUEVOS LANZAMIENTOS - THE SOUNDGARDEN
+   ============================================== */
+
+.seccion-nuevos {
+  background: #faf8f5;
+  padding: 4rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.titulo-seccion {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titulo-seccion i {
+  color: #dac448;
+  margin-right: 0.5rem;
+}
+
+.intro-nuevos {
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- CONTENEDOR DE PRODUCTOS --- */
+.contenedor-productos-nuevos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* --- TARJETA DE PRODUCTO --- */
+.tarjeta-nuevo {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  max-width: 300px;
+  padding-bottom: 1.5rem;
+}
+
+.tarjeta-nuevo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* --- ETIQUETA NUEVO --- */
+.etiqueta-nuevo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #dd1717;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- IMAGEN --- */
+.img-nuevo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px 14px 0 0;
+}
+
+/* --- NOMBRE DEL PRODUCTO --- */
+.nombre-nuevo {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.3rem;
+  color: #222;
+  font-weight: 700;
+}
+
+/* --- DESCRIPCIÓN --- */
+.descripcion-nuevo {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 1rem 1.5rem;
+}
+
+/* --- BOTÓN "VER MÁS" --- */
+.btn-vermas {
+  display: inline-block;
+  background: #f3900f;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-vermas:hover {
+  background: #b68825;
+  transform: scale(1.05);
+}
+
+.btn-vermas i {
+  margin-right: 6px;
+}
+
+section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+</style>
+
+<br><br><br>
+<!-- Banner de Cookies -->
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <p>
+    ¡Hola! 🍪 Usamos cookies para mejorar tu experiencia. 
+    <a href="Legal.html">Más información</a>
+  </p>
+  <button id="accept-cookies">Aceptar</button>
+</div>
+<!-- Botón Volver Ar
+ riba (solo imagen) -->
+<button id="btn-arriba" aria-label="Volver arriba" style="display:none;">
+  <img src="img/icono.webp" alt="Subir" width="60" height="60">
+</button>
+
+<style>
+  /* ====== BOTÓN VOLVER ARRIBA — SOLO IMAGEN ====== */
+  #btn-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* oculto por defecto */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  #btn-arriba img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  #btn-arriba:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const btnArriba = document.getElementById("btn-arriba");
+
+  // Mostrar el botón al bajar más de 200px
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+      btnArriba.style.display = "block";
+    } else {
+      btnArriba.style.display = "none";
+    }
+  });
+
+  // Al hacer clic, volver suavemente arriba
+  btnArriba.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+// ====== BANNER DE COOKIES ======
+const cookieBanner = document.getElementById("cookie-banner");
+const aceptarBtn = document.getElementById("accept-cookies");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("cookiesAceptadas")) {
+    cookieBanner.style.display = "flex";
+  }
+});
+
+aceptarBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesAceptadas", "true");
+  cookieBanner.style.display = "none";
+});
+</script>
+
+
+
+<!-- =====================================================
+     BANNER DE CONFIANZA - THE SOUNDGARDEN
+===================================================== -->
+<section class="banner-confianza">
+  <div class="contenedor-confianza">
+    <div class="item-confianza">
+      <i class="fas fa-shield-alt icono-confianza"></i>
+      <span>Garantía 1 año</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-lock icono-confianza"></i>
+      <span>Pago seguro</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-flag icono-confianza"></i>
+      <span>Hecho en Colombia</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-heart icono-confianza"></i>
+      <span>Hecho con Amor</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<style>
+
+/* =====================================================
+   BANNER DE CONFIANZA - THE SOUNDGARDEN
+===================================================== */
+.banner-confianza {
+  background: #0d0d0d; /* Negro profundo */
+  color: #f8d37b; /* Dorado suave */
+  padding: 2rem 1rem;
+  border-top: 2px solid #c46b18; /* Naranja cálido */
+  border-bottom: 2px solid #7c1b16; /* Rojo acento */
+  text-align: center;
+}
+
+.contenedor-confianza {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.item-confianza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.item-confianza:hover {
+  transform: translateY(-5px);
+  color: #ffb400; /* Dorado más brillante al pasar el mouse */
+}
+
+.icono-confianza {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ff9a00; /* Naranja principal */
+}
+</style>
+
+<!-- =========================
+   PIE DE PÁGINA 
+========================= -->
+
+<footer class="footer">
+  <div class="contenedor-footer">
+    
+    <!-- Columna 1: Identidad -->
+    <div class="columna">
+      <h3>The SoundGarden</h3>
+      <p>🎶 Tienda, estudio y espacio creativo para músicos. Inspiramos la escena sonora del Quindío con pasión y calidad 100% cuyabra.</p>
+      <p>Guitarras, bajos, teclados, audio profesional y mucho más.</p>
+    </div>
+
+    <!-- Columna 2: Servicios -->
+    <div class="columna">
+      <h3>Servicios y Otros</h3>
+      <ul class="lista-footer">
+        <li><a href="productos.html">Venta de Instrumentos</a></li>
+        <li><a href="Servicios.html">Mantenimiento y Reparación</a></li>
+        <li><a href="Servicios.html">Clases y Talleres Musicales</a></li>
+        <li><a href="eventos.html">Sonido para Eventos</a></li>
+        <li><a href="Servicios.html">Producción y Grabación</a></li>
+        <li><a href="Blog.html">Blogs</a></li>
+        <li><a href="Banda.html">Nuestra Semilla: Nuestra Banda</a></li>
+        <li><a href="Horarios.html">Nuestro horarios</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Soporte -->
+    <div class="columna">
+      <h3>Soporte y Ayuda</h3>
+      <ul class="lista-footer">
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="contacto.html">Contáctanos</a></li>
+        <li><a href="soporte.html">¿Problema con su compra?</a></li>
+        <li><a href="garantia.html">Garantías y Devoluciones</a></li>
+        <li><a href="Envios.html">Envíos Nacionales</a></li>
+        <li><a href="foro.html">Nuestro Foro</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Cuenta -->
+    <div class="columna">
+      <h3>Mi Cuenta</h3>
+      <ul class="lista-footer">
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="Login.html">Registrarse</a></li>
+        <li><a href="cuenta.html">Mi Perfil</a></li>
+        <li><a href="CerrarLogin.html">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna  5: Sección Información de Contacto -->
+                <div class="seccion-footer">
+                    <h3>⚡ Información de Contacto 🔥</h3>
+                    <br>
+                    <p><i class="fas fa-map-marker-alt"></i>Calle 54N, MZ 24, Urb. Bailadores - Armenia, Quindío - Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 321 353 2665
+                    <br>
+                    <i class="fas fa-mobile-alt"></i> +57 310 456 7890</p>
+                    <p><i class="fas fa-envelope"></i>TheSoundGarden@proton.me</p>
+                    <i class="fas fa-globe"></i> www.TheSoundGarden.com</p>
+                    <p><i class="fas fa-clock"></i> De Lunes a Domingo
+                    7:00 AM - 7:00 PM</p>
+                    <a href="rss.xml" class="btn-rss" target="_blank" title="Suscribirse al canal RSS">
+        📡 Suscribirse a nuestro RSS 
+      </a>
+                </div>
+
+    <!-- Columna 6: Las Redes Sociales -->
+    <div class="columna">
+      <h3>Síguenos</h3>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/NASA" target="_blank" title="Facebook The SoundGarden">
+          <img src="img/facebook.svg" alt="Facebook The SoundGarden">
+        </a>
+        <a href="https://x.com/Orisono728" target="_blank" title="X (Twitter)">
+          <img src="img/twitter.svg" alt="X The SoundGarden">
+        </a>
+        <a href="https://www.instagram.com/kilonova727/" target="_blank" title="Instagram The SoundGarden">
+          <img src="img/instagram-square.svg" alt="Instagram The SoundGarden">
+        </a>
+        <a href="https://www.youtube.com/@Orisono1" target="_blank" title="YouTube The SoundGarden">
+          <img src="img/youtube.svg" alt="YouTube The SoundGarden">
+        </a>
+        <a href="https://soundcloud.com/orisono727" target="_blank" title="soundcloud The SoundGarden">
+          <img src="img/soundcloud.svg" alt="soundcloud The SoundGarden">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formas de pago -->
+  <div class="pagos">
+    <h3>Medios de Pago</h3>
+    <div class="pagos-icons">
+      <img src="img/Tarjeta.png" alt="Visa">
+      <img src="img/Tarjeta2.png" alt="MasterCard">
+      <img src="img/Tarjeta3.png" alt="American Express">
+      <img src="img/Tarjeta4.png" alt="PayPal">
+      <img src="img/Tarjeta5.png" alt="Nequi">
+      <img src="img/Tarjeta6.png" alt="Daviplata">
+      <img src="img/Tarjeta7.png" alt="Bancolombia">
+      <img src="img/Tarjeta8.png" alt="PSE">
+    </div>
+  </div>
+
+  <!-- Información Legal -->
+  <div class="informacion-legal">
+    <ul>
+      <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+      <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+      <li><a href="TratamientoDeDatos.html">Política de Tratamiento de Datos</a></li>
+    </ul>
+    <p>© 2025 <strong>The SoundGarden</strong>. Todos los derechos reservados.  
+      Diseñado con 💛💙❤️ - desde Armenia, Quindío.</p>
+    <p class="powered-by">Powered by <span>The SoundGarden Team 🐧</span></p>
+  </div>
+  
+<!-- =========================
+   SCRIPT DINÁMICO - SOUNDGARDEN VIVO
+========================= -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hora = new Date().getHours();
+    let mensaje = "";
+    let bgColor = "";
+    let textColor = "";
+    let emoji = "";
+
+    // Mensajes por hora (más humanos, poéticos y musicales)
+    if (hora < 6) {
+      mensaje = "🌅 Aún canta la madrugada... deja que tus ideas despierten contigo.";
+      bgColor = "linear-gradient(90deg, #0d1b2a, #1b263b)";
+      textColor = "#8dd9ff";
+    } else if (hora < 12) {
+      mensaje = "☀️ ¡Buenos días, músico madrugador! Hoy el ritmo lo marcas tú.";
+      bgColor = "linear-gradient(90deg, #f7c948, #f8e16c)";
+      textColor = "#2d2d2d";
+    } else if (hora < 18) {
+      mensaje = "🎶 ¡Buenas tardes! Inspírate y crea algo que haga vibrar al mundo.";
+      bgColor = "linear-gradient(90deg, #f37335, #fdc830)";
+      textColor = "#fffdf5";
+    } else if (hora < 21) {
+      mensaje = "🌇 ¡Atardece! Deja que tu música sea el eco dorado del día.";
+      bgColor = "linear-gradient(90deg, #fc466b, #3f5efb)";
+      textColor = "#f7f7f7";
+    } else {
+      mensaje = "🌙 ¡Buenas noches, alma sonora! No olvides soñar en acordes y silencios.";
+      bgColor = "linear-gradient(90deg, #141e30, #243b55)";
+      textColor = "#c0eaff";
+    }
+
+    // Crear el elemento dinámico
+    const saludo = document.createElement("div");
+    saludo.classList.add("saludo-dinamico");
+    saludo.textContent = mensaje;
+    saludo.style.background = bgColor;
+    saludo.style.color = textColor;
+
+    // Insertar antes del texto legal
+    const infoLegal = document.querySelector(".informacion-legal");
+    if (infoLegal) {
+      infoLegal.prepend(saludo);
+    }
+  });
+</script>
+
+<style>
+.saludo-dinamico {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: aparecerSaludo 1.2s ease-out;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(3px);
+  position: relative;
+  z-index: 5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saludo-dinamico:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Animación de entrada suave */
+@keyframes aparecerSaludo {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</footer>
+
+<!-- =========================
+     SCRIPTS Y FUNCIONALIDAD
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/busqueda.js"></script>
+<!-- Librería SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/ui-helpers.js"></script>
+</body>
+</html>
+

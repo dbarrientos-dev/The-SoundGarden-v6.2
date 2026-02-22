@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="es">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://thesoundgarden.com/">
+    <meta name="author" content="The SoundGarden Team">
+
+
+  <!-- Preload de imágenes  -->
+  <link rel="preload" as="image" href="img/favicon.png">
+  <link rel="preload" as="image" href="img/bajista-en-un-escenario-con-un-conjunto-de-pedales-de-efectos-de-distorsion.jpg">
+  <link rel="preload" as="image" href="img/musica3.jpg">
+  <link rel="preload" as="image" href="img/guitarra-electrica-fotorrealista-y-naturaleza-muerta.jpg">
+  <link rel="preload" as="image" href="img/vista-de-guitarra-en-tienda-de-instrumentos-musicales.jpg">
+
+  <!-- =========================================
+       BIBLIOTECAS Y FRAMEWORKS CSS
+  ========================================== -->
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css">
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome (íconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Leaflet (mapas interactivos) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <!-- Estilos principales -->
+  <link rel="preload" href="css/index.css" as="style">
+  <!--Vínculación al CSS EXTERNO-->
+  <link rel="stylesheet" href="css/index.css">
+
+  <!-- =========================
+       FAVICONS
+  ========================== -->
+  <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="SoundGarden">
+  <link rel="manifest" href="documents/site.webmanifest">
+  <title>Inicio - The SoundGarden</title>
+</head>
+
+<header>
+  <!-- ===============================================
+     SALUDO JS PARA LOS USUARIOS DE THE SOUNDGARDEN
+==================================================== -->
+
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  const hora = new Date().getHours();
+  let saludo, colorFondo;
+
+  if (hora < 12) {
+    saludo = "☀️ ¡Buenos días, músico! Empieza tu día con el ritmo en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #ffafbd, #ffc3a0)";
+  } else if (hora < 19) {
+    saludo = " 🌵 ¡Buenas tardes! Descubre algunos instrumentos hechos con alma cuyabra.";
+    colorFondo = "linear-gradient(90deg, #89f7fe, #66a6ff)";
+  } else {
+    saludo = "🌙 ¡Buenas noches, artista! La inspiración no duerme en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #2b5876, #4e4376)";
+  }
+
+  const saludoBanner = document.createElement("div");
+  saludoBanner.innerHTML = `<strong>${saludo}</strong>`;
+  saludoBanner.style.cssText = `
+    background: ${colorFondo};
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+    animation: aparecer 1.2s ease-out forwards;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  `;
+
+  document.body.prepend(saludoBanner);
+});
+
+// Animación de aparición suave
+const estiloAnimacion = document.createElement("style");
+estiloAnimacion.textContent = `
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(estiloAnimacion);
+</script>
+
+   <!-- =========================
+       ENCABEZADO PRINCIPAL
+  ========================== -->
+  <header class="encabezado-sitio">
+    <div class="header-contenedor">
+
+      <!-- LOGO -->
+      <div class="logo-nombre">
+        <a href="index.html" aria-label="Ir al inicio">
+          <img src="img/favicon-96x96.png" alt="Logo de The SoundGarden" class="logo" loading="lazy">
+        </a>
+      </div>
+
+     <!-- NAVEGACIÓN -->
+      <nav class="navbarra" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="testimoniales.html">Testimonios</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="Nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="Login.html">Acceder</a></li>
+        </ul>
+      </nav>
+     <!-- =========================
+     CARRITO, BÚSQUEDA Y CONFIGURACIÓN
+========================= -->
+<div class="acciones-usuario">
+  
+  <!-- BÚSQUEDA -->
+  <form id="form-buscar" role="search">
+    <input 
+      type="search" 
+      id="buscar-producto"
+      placeholder="Buscar productos..." 
+      aria-label="Buscar productos" 
+    />
+    <button type="submit" aria-label="Buscar">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+
+<!-- CARRITO -->
+<a href="pedidos.html" aria-label="Ver carrito">
+  <button id="btn-carrito">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+</a>
+
+<!-- === MENÚ DE CONFIGURACIÓN  === -->
+<div class="config-menu">
+  <button id="btn-config" aria-label="Abrir configuración" aria-expanded="false">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div id="menu-config" class="menu-oculto">
+    <ul>
+      <li><a href="login.html"> 🗝️ Iniciar Sesión</a></li>
+      <li><a href="php/administrar.html">📠 Administrar</a></li>
+      <li><a href="contacto.html">🧭 Ayuda </a></li>
+      <li><a href="cuenta.html">🎯 Mi Cuenta</a></li>
+      <li><a href="Cerrarlogin.html">🚪 Salir</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Se tiene que esperar a que la pagina nuestra de The SoundGarden se cargue totalmente 
+  document.addEventListener("DOMContentLoaded", function() {
+    // Nosotros mostramos el mensaje con mucho vibers y estilo 
+
+    Swal.fire({
+      title: "🎸 ¡Eres Bienvenido a The SoundGarden!",
+      text: "💻 Esperamos que puedas disfrutar tu visita a este gran nirvana musical ⛈️ .",
+      icon: "info",        // 
+      confirmButtonText: "¡Vamos allá weon!", // Texto del botón
+      confirmButtonColor: "#ffb300",     // Color dorado tipo rock
+      background: "#1e1e1e",             // Fondo oscuro elegante
+      color: "#ffffff",                  // Texto blanco
+      imageUrl: "gifs/f1.gif",
+      imageWidth: 300,
+      imageAlt: "Una batería y una guitarra, en un concierto de metal",
+
+    backdrop: `
+  rgba(0,0,0,0.7)
+  url("gif/vinilo.gif")
+  center left
+  no-repeat
+`  
+    });
+  });
+</script>
+
+<style>
+    /* ========================================================
+  
+        FONDO QUE VA A CUBRIR TODA LA PANTALLA DEL SITIO WEB
+
+===============================================================*/
+
+body {
+  background: url("img/fondonegro.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed; /* esto va a hacer que se baje suave a hacer scroll */
+}
+</style>
+
+<style>
+/* === CONTENEDOR GENERAL === */
+.config-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  z-index: 9999;
+}
+
+/* === BOTÓN === */
+#btn-config {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#btn-config:hover {
+  transform: rotate(45deg);
+  color: #f4c542;
+}
+
+/* === MENÚ === */
+#menu-config {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostrar menú */
+#menu-config.menu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* === ITEMS === */
+#menu-config ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-config li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+#menu-config li:last-child {
+  border-bottom: none;
+}
+
+#menu-config a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+#menu-config a:hover {
+  color: #ff6600;
+}
+</style>
+
+<script>
+  
+// === MENÚ DE CONFIGURACIÓN ===
+const btnConfig = document.getElementById('btn-config');
+const menuConfig = document.getElementById('menu-config');
+
+btnConfig.addEventListener('click', () => {
+  const visible = menuConfig.classList.toggle('menu-visible');
+  btnConfig.setAttribute('aria-expanded', visible);
+});
+
+// Cierra el menú si se hace clic fuera
+window.addEventListener('click', (e) => {
+  if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
+    menuConfig.classList.remove('menu-visible');
+    btnConfig.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+
+</header>
+<body>
+<main id="contenido-principal">
+
+<!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================== -->
+
+   
+     <!-- Frase principal -->
+  <em class="nirvana-frase" aria-hidden="true">
+    ⊹ ࣪ ˖ ESTÁS CAYENDO AL NIRVANA DE LOS INSTRUMENTOS, LUGAR EN DONDE NACE EL SONIDO ✮⋆˙
+  </em>
+
+<section class="banner" aria-label="Galería principal de imágenes">
+  <div class="banner-slideshow" id="bannerSlideshow">
+    <img src="img/bajista-en-un-escenario-con-un-conjunto-de-pedales-de-efectos-de-distorsion.jpg" alt="Bajista en escenario con pedales de efectos">
+    <img src="img/musica3.jpg" alt="Músico en presentación en vivo">
+    <img src="img/guitarra-electrica-fotorrealista-y-naturaleza-muerta.jpg" alt="Guitarra eléctrica fotorrealista sobre fondo oscuro">
+    <img src="img/vista-de-guitarra-en-tienda-de-instrumentos-musicales.jpg" alt="Guitarras en tienda de instrumentos">
+  </div>
+
+  <button class="banner-btn prev" aria-label="Imagen anterior">&#10094;</button>
+  <button class="banner-btn next" aria-label="Siguiente imagen">&#10095;</button>
+</section>
+
+<style>
+
+/* ===============================
+   🎸 BANNER — ESTILO PRINCIPAL
+================================= */
+.banner {
+  position: relative;
+  width: 200%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.banner-slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.banner-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.banner-slideshow img.active {
+  opacity: 1;
+}
+
+/* Botones de navegación */
+.banner button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.banner button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.banner .prev {
+  left: 20px;
+}
+
+.banner .next {
+  right: 20px;
+}
+</style>
+
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('.banner-slideshow img');
+const totalSlides = slides.length;
+let autoSlide;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) slide.classList.add('active');
+  });
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % totalSlides;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+  showSlide(slideIndex);
+}
+
+function startAutoSlide() {
+  autoSlide = setInterval(nextSlide, 3500); // velocidad del cambio
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+
+// Iniciar el pase automático
+document.addEventListener('DOMContentLoaded', () => {
+  showSlide(slideIndex);
+  startAutoSlide();
+});
+</script>
+
+
+<style>
+
+
+  /* ============================
+   ESPACIADO ENTRE SECCIONES
+   ============================ */
+
+section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+</style>
+
+<br><br><br>
+
+<!-- =====================================================
+     ✦ THE SOUNDGARDEN — MANIFIESTO SONORO ✦
+     ===================================================== -->
+
+<section id="manifiesto" class="manifiesto">
+  <div class="manifiesto-marco">
+    <div class="manifiesto-texto">
+      <h2>El sonido no se vende, se comparte.</h2>
+      <p>
+        En <strong>The Soundgarden</strong> no seguimos modas: las hacemos resonar.  
+        Creemos que cada nota, cada golpe de cuerda, cada vibración  
+        es una conversación entre el alma y el ruido del universo.
+      </p>
+      <p>
+        Cada instrumento es una historia esperando manos que la liberen.  
+        No vendemos guitarras: entregamos fragmentos de identidad sonora.  
+        Son semillas que germinan en garajes, bares y sueños.
+      </p>
+      <p>
+        <strong>Innovamos sin olvidar nuestras raíces.</strong>  
+        Porque el arte crece entre la tierra vieja y el cielo nuevo.  
+        Entre el pasado analógico y el futuro digital,  
+        hay un eco: ese eco es <em>The Soundgarden</em>.
+      </p>
+<p class="powered-by">Powered by <span>The SoundGarden Team 🐧 </span></p>
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+
+<style>
+
+  /* =====================================================
+   ✦ THE SOUNDGARDEN — MANIFIESTO SONORO ✦
+   Solo aplica al #manifiesto
+   ===================================================== */
+
+#manifiesto {
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  font-family: "Space Grotesk", "Inconsolata", monospace;
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-top: 2px solid #f1c75d;
+  border-bottom: 2px solid #f1c75d;
+}
+
+#manifiesto .manifiesto-marco {
+  max-width: 900px;
+  background-color: #111;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(241, 199, 93, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#manifiesto .manifiesto-marco:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 40px rgba(241, 199, 93, 0.25);
+}
+
+#manifiesto .manifiesto-texto h2 {
+  font-size: 1.8rem;
+  color: #f1c75d;
+  margin-bottom: 1.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#manifiesto .manifiesto-texto p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.3rem;
+  color: #e3e3e3;
+}
+
+#manifiesto .manifiesto-texto strong {
+  color: #f1c75d;
+}
+
+#manifiesto .manifiesto-texto em {
+  color: #ffb347;
+  font-style: normal;
+}
+
+#manifiesto .manifiesto-texto .firma {
+  margin-top: 2.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #f1c75d;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(241, 199, 93, 0.3);
+}
+
+/* --- Efecto suave al aparecer (opcional pero hermoso) --- */
+#manifiesto {
+  opacity: 0;
+  animation: fadeInManifiesto 1.2s ease forwards;
+}
+
+@keyframes fadeInManifiesto {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  #manifiesto {
+    padding: 3rem 1rem;
+  }
+
+  #manifiesto .manifiesto-marco {
+    padding: 2rem 1.2rem;
+  }
+
+  #manifiesto .manifiesto-texto h2 {
+    font-size: 1.5rem;
+  }
+
+  #manifiesto .manifiesto-texto p {
+    font-size: 1rem;
+  }
+}
+
+  </style>
+
+
+<br><br><br>
+
+<!-- =========================
+     NOTAS MÁGICAS
+========================= -->
+
+<section id="filosofia" class="filosofia">
+  <div class="filosofia-contenedor">
+    <div class="filosofia-texto">
+      <h2>NOTAS MÁGICAS</h2>
+      <h6 class="cita" style="color: rgb(0, 0, 0);">
+        "Un instrumento es capaz de darle una sinfonía única a tu vida"
+      </h6>
+      <a href="Blog.html" class="btn-vermas">Conoce más</a>
+    </div>
+
+    <!-- Imagen -->
+    <div class="destacado-producto2-contenedor">
+      <div class="destacado-producto2-imagen">
+        <img 
+          src="img/Blog1.jpg" 
+          loading="lazy" 
+          width="600" 
+          height="400" 
+          alt="Imagen del blog sobre instrumentos musicales">
+      </div>
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+
+<!-- ===============================
+     PRODUCTOS DESTACADOS DEL MES
+=============================== -->
+
+<section class="destacados-productos" aria-labelledby="destacados-title">
+  <h2 id="destacados-title">
+    🎶 Productos Destacados del Mes en <span>The SoundGarden</span> 🎶
+  </h2>
+  <p class="intro">
+    En The SoundGarden creemos que cada instrumento cuenta una historia, una nota y una pasión.  
+    Esta sección reúne las piezas que más han inspirado a nuestros músicos durante el mes:  
+    íconos del sonido, elegidos por su calidad, legado y la magia que despiertan en cada escenario.
+  </p>
+
+  <!-- Contenedor de productos -->
+  <div class="producto-grid">
+
+    <!-- Producto 1 -->
+    <article class="producto-item">
+      <div class="tarjeta-producto">
+        <img src="img/lespaul3.jpeg" loading="lazy" alt="Guitarra Gibson LesPaul">
+        <div class="info">
+          <h3>Guitarra Gibson Les Paul</h3>
+          <h6 style="color: black;">$6.000.000</h6>
+          <p class="descripcion">
+            🎸 <strong>Gibson Les Paul</strong> — símbolo absoluto del rock clásico y moderno.  
+            Su cuerpo macizo y su tono profundo le otorgan una calidez inigualable.  
+            Está aquí porque representa el alma del escenario: autenticidad, fuerza y elegancia.
+          </p>
+          <div class="detalles">
+            <span><i class="fas fa-clock"></i> Envío en 24 h</span><br>
+            <span><i class="fas fa-users"></i> 123 compras</span><br>
+            <span><i class="fas fa-map-marker-alt"></i> Desde Armenia 🚚</span>
+          </div>
+          <div class="valoracion">⭐ 5.0 (💛💛💛💛💛)</div>
+          <a href="https://www.gibson.com/es/collections/gibson-les-paul-electric-guitars" class="btn-ver-mas">Ver más</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Producto 2 -->
+    <article class="producto-item">
+      <div class="tarjeta-producto">
+        <img src="img/strato.jpg" loading="lazy" alt="Guitarra Fender Stratocaster">
+        <div class="info">
+          <h3>Guitarra Fender Stratocaster</h3>
+          <h6 style="color: black;">$7.300.000</h6>
+          <p class="descripcion">
+            🎸 <strong>Fender Stratocaster</strong> — pura historia musical en tus manos.  
+            Su brillo y comodidad la convirtieron en la favorita de los grandes.  
+            Está destacada por su legado ininterrumpido: precisión, estilo y herencia sonora.
+          </p>
+          <div class="detalles">
+            <span><i class="fas fa-clock"></i> Envío en 24 h</span><br>
+            <span><i class="fas fa-users"></i> 346 compras</span><br>
+            <span><i class="fas fa-globe-americas"></i> Envíos a todo 🚚</span>
+          </div>
+          <div class="valoracion">⭐ 5.0 (💛💛💛💛💛)</div>
+          <a href="https://intl.fender.com/collections/electric-guitars-stratocaster" class="btn-ver-mas">Ver más</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Producto 3 -->
+    <article class="producto-item">
+      <div class="tarjeta-producto">
+        <img src="img/bajo33.jpg" loading="lazy" alt="Bajo eléctrico Jackson">
+        <div class="info">
+          <h3>Bajo eléctrico Jackson</h3>
+          <h6 style="color: black;">$6.820.000</h6>
+          <p class="descripcion">
+            🎸 <strong>Jackson Bass</strong> — diseñado para quienes sienten el ritmo en la piel.  
+            Ofrece potencia, rango y una respuesta precisa en cada nota.  
+            Se destaca por ser el equilibrio entre rudeza, control y versatilidad sonora moderna.
+          </p>
+          <div class="detalles">
+            <span><i class="fas fa-clock"></i> Envío en 24 h</span><br>
+            <span><i class="fas fa-users"></i> 1.223 compras</span><br>
+            <span><i class="fas fa-map-marker-alt"></i> Desde Armenia 🚚</span>
+          </div>
+          <div class="valoracion">⭐ 5.0 (💛💛💛💛💛)</div>
+          <a href="https://www.miche.com.co/collections/bajos-jackson" class="btn-ver-mas">Ver más</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Producto 4 -->
+    <article class="producto-item">
+      <div class="tarjeta-producto">
+        <img src="img/steve.jpg" loading="lazy" alt="Ibanez Signature Steve Vai">
+        <div class="info">
+          <h3>Ibanez Signature Steve Vai</h3>
+          <h6 style="color: black;">$12.000.000</h6>
+          <p class="descripcion">
+            🎸 <strong>Ibanez JEM Steve Vai</strong> — elegancia técnica y poder visual.  
+            Nació del virtuosismo del legendario Steve Vai y su exigencia extrema.  
+            Está aquí porque encarna la perfección: innovación, detalle y espíritu artístico.
+          </p>
+          <div class="detalles">
+            <span><i class="fas fa-clock"></i> Envío en 24 h</span><br>
+            <span><i class="fas fa-users"></i> 267 compras</span><br>
+            <span><i class="fas fa-map-marker-alt"></i> Desde Armenia 🚚</span>
+          </div>
+          <div class="valoracion">⭐ 5.0 (💛💛💛💛💛)</div>
+          <a href="https://www.ibanez.com/usa/artists/detail/213.html" class="btn-ver-mas">Ver más</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<style>
+  /* ===============================
+   PRODUCTOS DESTACADOS — VERSIÓN ANCHO COMPLETO
+   Estilo oscuro + tarjetas blancas con botones naranjas
+   Nivel junior-intermedio
+================================ */
+
+.destacados-productos {
+  width: 100%;
+  margin: 0;
+  padding: 60px 40px;
+  background-color: #0e0e0e; /* fondo oscuro completo */
+  color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.destacados-productos h2 {
+  font-size: 2.4em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.destacados-productos h2 span {
+  color: #ff8c42;
+}
+
+.destacados-productos .intro {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+/* ===== GRID DE PRODUCTOS ===== */
+.producto-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+  gap: 30px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ===== TARJETA DE PRODUCTO ===== */
+.tarjeta-producto {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* ===== IMAGEN ===== */
+.tarjeta-producto img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid #ff8c42;
+}
+
+/* ===== INFO ===== */
+.tarjeta-producto .info {
+  padding: 24px 20px;
+  text-align: left;
+  color: #111;
+}
+
+.tarjeta-producto h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.tarjeta-producto h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff8c42;
+  margin-bottom: 12px;
+}
+
+.descripcion {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.detalles {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.valoracion {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+/* ===== BOTÓN ===== */
+.btn-ver-mas {
+  display: inline-block;
+  background: #ff8c42;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-ver-mas:hover {
+  background: #e0701f;
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .producto-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 por fila */
+    gap: 25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .producto-grid {
+    grid-template-columns: 1fr; /* 1 por fila */
+    gap: 20px;
+  }
+
+  .tarjeta-producto img {
+    height: 200px;
+  }
+}
+
+</style>
+
+<!-- =====================================================
+     PRODUCTO DESTACADO DEL MES
+===================================================== -->
+
+  <section class="destacado-producto2" id="guitarra-mes">
+    <div class="contenedor">
+      <div class="destacado-producto2-contenedor">
+        <div class="destacado-producto2-imagen">
+          <img src="img/kramer.jpg" loading="lazy" 
+             width="600" 
+             height="400" 
+             alt="Ibanez Signature Eddie Van Halen">
+        </div>
+        <div class="destacado-producto2-informacion">
+          <span>Mira este Producto Exclusivo de Nuestra Tienda</span>
+          <span class="destacado-etiqueta"><strong>Instrumento destacado del mes</strong></span>
+          <h2><em>Ibanez Signature Eddie Van Halen</em></h2>
+          <p class="destacado2-precio">$18.000.000</p>
+          <div class="destacado2-descripcion">
+            <!-- Información del producto -->
+            <p>
+              La <strong>Frankenstrat</strong> es una de las guitarras eléctricas más icónicas de la historia, reconocida tanto dentro como fuera del mundo musical.  
+              Su diseño llamativo, con líneas entrecruzadas en rojo, blanco y negro, es inconfundible.  
+              Creación de <em>Eddie Van Halen</em>, sentó las bases para nuevas generaciones de guitarras híbridas que hoy son estándar en el rock y el metal.
+            </p>
+          </div>
+                  <!-- Botones de acción -->
+        <div class="producto2-acciones">
+          <button class="btn add-to-cart" data-id="guitarra-mes" onclick="agregarAlCarrito()">Agregar al carrito</button>
+          <a href="pedidos.html?producto=guitarra-mes" class="btn secondary">Ordenar ahora</a>
+        </div>
+                <!-- Carrito -->
+        <div id="carrito-items"></div>
+        <p id="carrito-total">$0 COP</p>
+      </div>
+      <script>
+       function agregarAlCarrito() {
+        alert("¡Producto añadido al carrito! 🎸");
+       }
+      </script>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =====================================================
+     SECCIÓN DE SERVICIOS (The Soundgarden)
+     ===================================================== -->
+<section class="servicios-wiki container my-5" id="servicios">
+  
+  <!-- Contenedor del servicio principal -->
+  <div class="servicio-item d-flex flex-column flex-md-row align-items-center gap-4 shadow-sm p-4 rounded bg-light border border-2 border-dark-subtle">
+
+    <!-- Imagen del servicio -->
+    <div class="servicio-imagen text-center flex-shrink-0">
+      <img 
+        src="img/ComposicionMusical.jpg" 
+        alt="Luthier ajustando una guitarra en The Soundgarden" 
+        class="img-fluid rounded-3 shadow" 
+        loading="lazy"
+        width="450" height="300">
+    </div>
+
+    <!-- Texto del servicio -->
+    <div class="servicio-texto text-md-start text-center">
+      <h3 class="fw-bold mb-3 text-dark">Explora nuestra sección de servicios</h3>
+      <p class="text-muted mb-3">
+        En <strong>The Soundgarden</strong> ofrecemos una gama completa de servicios diseñados para cuidar,
+        restaurar y mejorar tus instrumentos. Desde un simple cambio de cuerdas hasta una
+        restauración estructural, tratamos cada pieza con el mismo respeto que le tendrías tú a tu sonido.
+      </p>
+      <p class="text-muted mb-4">
+        <em><strong>Servicios destacados:</strong></em> diagnóstico profesional, calibración de acción y entonación,
+        reacondicionado de diapasones, reparación de mástil, modernización de electrónica y acabados personalizados.
+      </p>
+      <a href="Servicios.html" class="btn btn-warning mt-3 px-4 py-2 fw-semibold text-dark border border-dark">
+        Conoce más
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===============================
+     SECCIÓN DE EXPERIENCIAS
+================================ -->
+<section class="seccion-testimonios">
+  <div class="contenedor">
+    <h2 class="titulo-seccion">Lo Que Dicen Algunas Personas en el Internet</h2>
+    <div class="grid-testimonios">
+
+      <!-- Testimonio 1 -->
+      <article class="tarjeta-testimonio">
+        <div class="perfil-usuario">
+          <img src="img/icon.jpg" alt="Foto de usuario 1" class="avatar-imagen">
+          <div class="info-usuario">
+            <h4>Juan Sebastián</h4>
+            <p>Armenia, Quindío</p>
+          </div>
+        </div>
+        <p class="texto-testimonio">
+          “Llevé mi guitarra a calibrar y quedó impecable. La atención fue rápida y muy profesional.  
+          Además, el técnico me explicó todo el proceso con paciencia y detalle. Recomendadísimos.”
+        </p>
+        <div class="rating-testimonio">★★★★</div>
+        <img src="img/instagram.svg" alt="Instagram The SoundGarden">
+      </article>
+
+      <!-- Testimonio 2 -->
+      <article class="tarjeta-testimonio">
+        <div class="perfil-usuario">
+          <img src="img/icon1.jpg" alt="Foto de usuario 2 " class="avatar-imagen">
+          <div class="info-usuario">
+            <h4>Mariana Vásquez</h4>
+            <p>Pereira, Colombia</p>
+          </div>
+        </div>
+        <p class="texto-testimonio">
+          “Tomé clases de bajo eléctrico en The SoundGarden y fue una experiencia increíble.  
+          Los profesores son músicos activos, se nota la pasión por enseñar. ¡Ahora toco en mi primera banda!”
+        </p>
+        <div class="rating-testimonio">★★★★★</div>
+        <img src="img/x-twitter.svg" alt="X The SoundGarden">
+      </article>
+
+      <!-- Testimonio 3 -->
+      <article class="tarjeta-testimonio">
+        <div class="perfil-usuario">
+          <img src="img/icon4.jpg" alt= "Foto de usuario 3" class="avatar-imagen">
+          <div class="info-usuario">
+            <h4>Andrés López</h4>
+            <p>Manizales, Colombia</p>
+          </div>
+        </div>
+        <p class="texto-testimonio">
+          “Compré un teclado digital y me asesoraron mejor que en cualquier tienda grande.  
+          Incluso me ayudaron a configurarlo y afinarlo para mi estudio casero.  
+          Se nota que aman la música.”
+        </p>
+        <div class="rating-testimonio">★★★★★</div>
+        <img src="img/x-twitter.svg" alt="X The SoundGarden">
+      </article>
+
+      <!-- Testimonio 4 -->
+      <article class="tarjeta-testimonio">
+        <div class="perfil-usuario">
+          <img src="img/icon5.jpg" alt="Foto de usuario 4" class="avatar-imagen">
+          <div class="info-usuario">
+            <h4>Laura Contreras</h4>
+            <p>Cali, Colombia</p>
+          </div>
+        </div>
+        <p class="texto-testimonio">
+          “Restauraron mi guitarra clásica de hace 20 años.  
+          El resultado fue espectacular: mantiene su esencia pero suena como nueva.  
+          Gracias por devolverle la vida a mi instrumento.”
+        </p>
+        <div class="rating-testimonio">★★★★</div>
+        <img src="img/instagram.svg" alt="Instagram The SoundGarden">
+        </a>
+      </article>
+
+      <!-- Testimonio 5 -->
+      <article class="tarjeta-testimonio">
+        <div class="perfil-usuario">
+          <img src="img/icon8.jpg" alt="Foto de usuario 5" class="avatar-imagen">
+          <div class="info-usuario">
+            <h4>David Fernández</h4>
+            <p>Bogotá, Colombia</p>
+          </div>
+        </div>
+        <p class="texto-testimonio">
+          “Grabé mi primera canción en el estudio de The SoundGarden y la experiencia fue mágica.  
+          Buen sonido, equipo profesional y un ambiente donde la creatividad fluye sola.”
+        </p>
+        <div class="rating-testimonio">★★★★★</div>
+        <img src="img/soundcloud.svg" alt="soundcloud The SoundGarden">
+      </article>
+
+      <!-- Testimonio 6 -->
+      <article class="tarjeta-testimonio">
+        <div class="perfil-usuario">
+          <img src="img/icon7.jpg" alt="Foto de usuario 6" class="avatar-imagen">
+          <div class="info-usuario">
+            <h4>Andrés Restrepo</h4>
+            <p>Medellín, Colombia</p>
+          </div>
+        </div>
+        <p class="texto-testimonio">
+          “The SoundGarden es más que una tienda: es un refugio para músicos.  
+          Siempre salgo inspirado y con ganas de seguir aprendiendo.”
+        </p>
+        <div class="rating-testimonio">★★★★☆</div>
+        <img src="img/youtube.svg" alt="YouTube The SoundGarden">
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===============================
+   SECCIÓN DE EXPERIENCIAS (TESTIMONIOS) */
+
+.seccion-testimonios {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #8B4513;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.grid-testimonios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.tarjeta-testimonio {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+.tarjeta-testimonio:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+}
+
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar-imagen {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 3px solid #FFD700;
+}
+
+.info-usuario h4 {
+  font-size: 1.2rem;
+  color: #8B4513;
+  margin: 0;
+}
+
+.info-usuario p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+}
+
+.texto-testimonio {
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de estrellas + red social */
+.rating-testimonio {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  color: #FFD700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* Ícono de red social pequeño a la izquierda */
+.tarjeta-testimonio img[alt*="The SoundGarden"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.tarjeta-testimonio img[alt*="The SoundGarden"]:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .grid-testimonios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-testimonios {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+</style>
+<!--=====================================================
+     RECOMENDACIÓN MUSICAL INTERACTIVA (VERSIÓN JUNIOR RETRO)
+=========================================================-->
+<section class="recomendar-banda">
+  <center>
+    <button class="btn-recomendar" onclick="recomendarBanda()">🎶 HOY EN SONIDOS: DESCUBRE UNA BANDA</button>
+  </center>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+function recomendarBanda() {
+  const bandas = [
+    {
+      nombre: "Panchiko",
+      descripcion: "Una joya perdida del lo-fi británico. Melancolía digital y nostalgia pura.",
+      imagen: "img/panchiko.jpeg",
+      enlace: "https://music.youtube.com/watch?v=BQRkv-MZwJ8"
+    },
+    {
+      nombre: "The Strokes",
+      descripcion: "Melancolía neoyorquina con guitarras brillantes y ritmo elegante.",
+      imagen: "img/thenewabnormal.jpg",
+      enlace: "hhttps://music.youtube.com/watch?v=826mxiKjoP0"
+    },
+     {
+      nombre: "Nirvana",
+      descripcion: "Grunge de los olorosos 90's con espírito joven. Un golpe a la cara con cara grito.",
+      imagen: "img/nirvana1.jpg",
+      enlace: "https://music.youtube.com/watch?v=P-lYeI4WAqY&list=OLAK5uy_lbUtMOL5nsvgGyBySLLDjmOYtpQaCK9_0"
+    },
+    {
+      nombre: "Turnstile",
+      descripcion: "Hardcore moderno con espíritu positivo. Energía pura en cada acorde.",
+      imagen: "img/turnstile.jpg",
+      enlace: "https://music.youtube.com/watch?v=P-lYeI4WAqY&list=OLAK5uy_lbUtMOL5nsvgGyBySLLDjmOYtpQaCK9_0"
+    },
+    {
+      nombre: "Peeling Flesh",
+      descripcion: "Brutalidad honesta y riffs que te hacen mover el cuello. No apto para débiles.",
+      imagen: "img/peelingflesh.jpeg",
+      enlace: "https://music.youtube.com/watch?v=OZeojdZu8X0&list=OLAK5uy_kD754I7lWRoyH-PhTdwQcm8793WKY3oD8"
+    }
+  ];
+  
+  const seleccion = bandas[Math.floor(Math.random() * bandas.length)];
+
+  Swal.fire({
+    title: `🎸 ${seleccion.nombre}`,
+    text: seleccion.descripcion,
+    imageUrl: seleccion.imagen,
+    imageWidth: 250,
+    imageHeight: 250,
+    imageAlt: `Portada de ${seleccion.nombre}`,
+    background: '#181818',
+    color: '#f0f0f0',
+    confirmButtonText: '¡Escuchar ahora!',
+    confirmButtonColor: '#ff2e63',
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.open(seleccion.enlace, '_blank');
+    }
+  });
+}
+</script>
+
+<!--=====================================================
+     ESTILO RETRO JUNIOR
+=========================================================-->
+<style>
+.recomendar-banda {
+  margin: 60px 0;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+}
+
+.btn-recomendar {
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  color: #fff;
+  border: 2px solid #111;
+  padding: 14px 35px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 0 #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-recomendar:hover {
+  background: linear-gradient(90deg, #3333ff, #ff00cc);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 0 #000;
+}
+
+.swal2-popup {
+  border: 2px solid #ff2e63 !important;
+  border-radius: 12px !important;
+  font-family: 'Courier New', monospace !important;
+}
+</style>
+
+<!--================================================================
+  BLOGS 
+===================================================================-->
+<section class="container blogs">
+  <h1 class="heading-1"> 🎺 Algunos de nuestros últimos blogs 📢🎺 </h1>
+
+  <div class="container-blogs">
+    <!-- BLOG 1 -->
+    <div class="card-blog">
+      <div class="container-img">
+        <img src="img/musiccol.jpg" alt="Imagen blog 1" />
+        <div class="button-group-blog"></div>
+      </div>
+      <div class="content-blog">
+        <h3>La industria musical en Colombia</h3>
+        <span>12 de Febrero de 2025</span>
+        <p>
+          Colombia vive un auge musical sin precedentes. Desde la cumbia hasta el rock alternativo, los artistas locales fusionan raíces y modernidad. La industria nacional se consolida con fuerza y diversidad en escenarios internacionales.
+        </p>
+        <a href="Blog.html" class="btn-read-more">Leer más</a>
+      </div>
+    </div>
+
+    <!-- BLOG 2 -->
+    <div class="card-blog">
+      <div class="container-img">
+        <img src="img/thereee.jpeg" alt="Imagen blog 2" />
+        <div class="button-group-blog"></div>
+      </div>
+      <div class="content-blog">
+        <h3>El theremin y su creación soviética</h3>
+        <span>20 de Febrero de 2025</span>
+        <p>
+          Inventado por Léon Theremin en 1920, este instrumento fue símbolo del ingenio soviético. Su sonido etéreo, casi fantasmal, marcó una revolución en la música electrónica temprana y aún inspira a compositores del siglo XXI.
+        </p>
+        <a href="Blog1.html" class="btn-read-more">Leer más</a>
+      </div>
+    </div>
+
+    <!-- BLOG 3 -->
+    <div class="card-blog">
+      <div class="container-img">
+        <img src="img/libb.jpg" alt="Imagen blog 3" />
+        <div class="button-group-blog"></div>
+      </div>
+      <div class="content-blog">
+        <h3>La música y liberación</h3>
+        <span>1 de Marzo de 2025</span>
+        <p>
+          Desde los himnos revolucionarios hasta el punk y el rock de protesta, la música ha sido un grito de resistencia frente a dictaduras y censura. En cada acorde vibra la voz de quienes lucharon por su libertad y su dignidad, siendo la voz del cambio social en muchas ocasiones.</p>
+        <a href="Blog3.html" class="btn-read-more">Leer más</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+
+<!-- Banner de Cookies -->
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <p>
+    ¡Hola! 🍪 Usamos cookies para mejorar tu experiencia. 
+    <a href="Legal.html">Más información</a>
+  </p>
+  <button id="accept-cookies">Aceptar</button>
+</div>
+<!-- Botón Volver Ar
+ riba (solo imagen) -->
+<button id="btn-arriba" aria-label="Volver arriba" style="display:none;">
+  <img src="img/icono.webp" alt="Subir" width="60" height="60">
+</button>
+
+<style>
+  /* ====== BOTÓN VOLVER ARRIBA — SOLO IMAGEN ====== */
+  #btn-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* oculto por defecto */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  #btn-arriba img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  #btn-arriba:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const btnArriba = document.getElementById("btn-arriba");
+
+  // Mostrar el botón al bajar más de 200px
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+      btnArriba.style.display = "block";
+    } else {
+      btnArriba.style.display = "none";
+    }
+  });
+
+  // Al hacer clic, volver suavemente arriba
+  btnArriba.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+// ====== BANNER DE COOKIES ======
+const cookieBanner = document.getElementById("cookie-banner");
+const aceptarBtn = document.getElementById("accept-cookies");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("cookiesAceptadas")) {
+    cookieBanner.style.display = "flex";
+  }
+});
+
+aceptarBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesAceptadas", "true");
+  cookieBanner.style.display = "none";
+});
+</script>
+
+<!-- =========================
+   PIE DE PÁGINA 
+========================= -->
+
+<footer class="footer">
+  <div class="contenedor-footer">
+    
+    <!-- Columna 1: Identidad -->
+    <div class="columna">
+      <h3>The SoundGarden</h3>
+      <p>🎶 Tienda, estudio y espacio creativo para músicos. Inspiramos la escena sonora del Quindío con pasión y calidad 100% cuyabra.</p>
+      <p>Guitarras, bajos, teclados, audio profesional y mucho más.</p>
+    </div>
+
+    <!-- Columna 2: Servicios -->
+    <div class="columna">
+      <h3>Servicios y Otros</h3>
+      <ul class="lista-footer">
+        <li><a href="productos.html">Venta de Instrumentos</a></li>
+        <li><a href="Servicios.html">Mantenimiento y Reparación</a></li>
+        <li><a href="Servicios.html">Clases y Talleres Musicales</a></li>
+        <li><a href="eventos.html">Sonido para Eventos</a></li>
+        <li><a href="Servicios.html">Producción y Grabación</a></li>
+        <li><a href="Blog.html">Blogs</a></li>
+        <li><a href="Horarios.html">Nuestro horarios</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Soporte -->
+    <div class="columna">
+      <h3>Soporte y Ayuda</h3>
+      <ul class="lista-footer">
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="contacto.html">Contáctanos</a></li>
+        <li><a href="soporte.html">¿Problema con su compra?</a></li>
+        <li><a href="garantia.html">Garantías y Devoluciones</a></li>
+        <li><a href="Envios.html">Envíos Nacionales</a></li>
+        <li><a href="foro.html">Nuestro Foro</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Cuenta -->
+    <div class="columna">
+      <h3>Mi Cuenta</h3>
+      <ul class="lista-footer">
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="Login.html">Registrarse</a></li>
+        <li><a href="cuenta.html">Mi Perfil</a></li>
+        <li><a href="CerrarLogin.html">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna  5: Sección Información de Contacto -->
+                <div class="seccion-footer">
+                    <h3>⚡ Información de Contacto 🔥</h3>
+                    <br>
+                    <p><i class="fas fa-map-marker-alt"></i>Calle 54N, MZ 24, Urb. Bailadores - Armenia, Quindío - Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 321 353 2665
+                    <br>
+                    <i class="fas fa-mobile-alt"></i> +57 310 456 7890</p>
+                    <p><i class="fas fa-envelope"></i>TheSoundGarden@proton.me</p>
+                    <i class="fas fa-globe"></i> www.TheSoundGarden.com</p>
+                    <p><i class="fas fa-clock"></i> De Lunes a Domingo
+                    7:00 AM - 7:00 PM</p>
+                    <a href="rss.xml" class="btn-rss" target="_blank" title="Suscribirse al canal RSS">
+        📡 Suscribirse a nuestro RSS 
+      </a>
+                </div>
+
+    <!-- Columna 6: Las Redes Sociales -->
+    <div class="columna">
+      <h3>Síguenos</h3>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/NASA" target="_blank" title="Facebook The SoundGarden">
+          <img src="img/facebook.svg" alt="Facebook The SoundGarden">
+        </a>
+        <a href="https://x.com/Orisono728" target="_blank" title="X (Twitter)">
+          <img src="img/twitter.svg" alt="X The SoundGarden">
+        </a>
+        <a href="https://www.instagram.com/kilonova727/" target="_blank" title="Instagram The SoundGarden">
+          <img src="img/instagram-square.svg" alt="Instagram The SoundGarden">
+        </a>
+        <a href="https://www.youtube.com/@Orisono1" target="_blank" title="YouTube The SoundGarden">
+          <img src="img/youtube.svg" alt="YouTube The SoundGarden">
+        </a>
+        <a href="https://soundcloud.com/orisono727" target="_blank" title="soundcloud The SoundGarden">
+          <img src="img/soundcloud.svg" alt="soundcloud The SoundGarden">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formas de pago -->
+  <div class="pagos">
+    <h3>Medios de Pago</h3>
+    <div class="pagos-icons">
+      <img src="img/Tarjeta.png" alt="Visa">
+      <img src="img/Tarjeta2.png" alt="MasterCard">
+      <img src="img/Tarjeta3.png" alt="American Express">
+      <img src="img/Tarjeta4.png" alt="PayPal">
+      <img src="img/Tarjeta5.png" alt="Nequi">
+      <img src="img/Tarjeta6.png" alt="Daviplata">
+      <img src="img/Tarjeta7.png" alt="Bancolombia">
+      <img src="img/Tarjeta8.png" alt="PSE">
+    </div>
+  </div>
+
+  <!-- Información Legal -->
+  <div class="informacion-legal">
+    <ul>
+      <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+      <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+      <li><a href="TratamientoDeDatos.html">Política de Tratamiento de Datos</a></li>
+    </ul>
+    <p>© 2025 <strong>The SoundGarden</strong>. Todos los derechos reservados.  
+      Diseñado con 💛💙❤️ - desde Armenia, Quindío.</p>
+    <p class="powered-by">Powered by <span>The SoundGarden Team 🐧</span></p>
+  </div>
+  
+<!-- =========================
+   SCRIPT DINÁMICO - SOUNDGARDEN VIVO
+========================= -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hora = new Date().getHours();
+    let mensaje = "";
+    let bgColor = "";
+    let textColor = "";
+    let emoji = "";
+
+    // Mensajes por hora (más humanos, poéticos y musicales)
+    if (hora < 6) {
+      mensaje = "🌅 Aún canta la madrugada... deja que tus ideas despierten contigo.";
+      bgColor = "linear-gradient(90deg, #0d1b2a, #1b263b)";
+      textColor = "#8dd9ff";
+    } else if (hora < 12) {
+      mensaje = "☀️ ¡Buenos días, músico madrugador! Hoy el ritmo lo marcas tú.";
+      bgColor = "linear-gradient(90deg, #f7c948, #f8e16c)";
+      textColor = "#2d2d2d";
+    } else if (hora < 18) {
+      mensaje = "🎶 ¡Buenas tardes! Inspírate y crea algo que haga vibrar al mundo.";
+      bgColor = "linear-gradient(90deg, #f37335, #fdc830)";
+      textColor = "#fffdf5";
+    } else if (hora < 21) {
+      mensaje = "🌇 ¡Atardece! Deja que tu música sea el eco dorado del día.";
+      bgColor = "linear-gradient(90deg, #fc466b, #3f5efb)";
+      textColor = "#f7f7f7";
+    } else {
+      mensaje = "🌙 ¡Buenas noches, alma sonora! No olvides soñar en acordes y silencios.";
+      bgColor = "linear-gradient(90deg, #141e30, #243b55)";
+      textColor = "#c0eaff";
+    }
+
+    // Crear el elemento dinámico
+    const saludo = document.createElement("div");
+    saludo.classList.add("saludo-dinamico");
+    saludo.textContent = mensaje;
+    saludo.style.background = bgColor;
+    saludo.style.color = textColor;
+
+    // Insertar antes del texto legal
+    const infoLegal = document.querySelector(".informacion-legal");
+    if (infoLegal) {
+      infoLegal.prepend(saludo);
+    }
+  });
+</script>
+
+<style>
+  
+  /* =========================
+   ESTILO DEL SALUDO DINÁMICO
+   ========================= */
+.saludo-dinamico {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: aparecerSaludo 1.2s ease-out;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(3px);
+  position: relative;
+  z-index: 5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saludo-dinamico:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes aparecerSaludo {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</footer>
+
+<!-- =========================
+     SCRIPTS Y FUNCIONALIDAD
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/busqueda.js"></script>
+<!-- Librería SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/ui-helpers.js"></script>
+</body>
+</html>
+

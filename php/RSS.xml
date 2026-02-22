@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>The SoundGarden</title>
+    <link>http://localhost/mi-blog/</link>
+    <description>Blog personal sobre ciencia y tecnología</description>
+    <language>es</language>
+    <lastBuildDate>Wed, 10 Sep 2025 18:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>Primera entrada</title>
+      <link>http://localhost/mi-blog/post1.html</link>
+      <description>Este es el resumen de mi primer post.</description>
+      <pubDate>Mon, 08 Sep 2025 12:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Segunda entrada</title>
+      <link>http://localhost/mi-blog/post2.html</link>
+      <description>Un post sobre astronomía y café.</description>
+      <pubDate>Tue, 09 Sep 2025 15:30:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

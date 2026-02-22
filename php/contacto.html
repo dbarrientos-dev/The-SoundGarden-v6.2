@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://thesoundgarden.com/">
+    <meta name="author" content="The SoundGarden Team">
+
+
+  <!-- Preload de imágenes  -->
+  <link rel="preload" as="image" href="img/favicon.png">
+  <link rel="preload" as="image" href="img/kjnk.jpg">
+  
+  <!-- =========================================
+       BIBLIOTECAS Y FRAMEWORKS CSS
+  ========================================== -->
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css">
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome (íconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Leaflet (mapas interactivos) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <!-- Estilos principales -->
+  <link rel="preload" href="css/style.css" as="style">
+  <!--Vínculación al CSS EXTERNO-->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- =========================
+       FAVICONS
+  ========================== -->
+  <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="SoundGarden">
+  <link rel="manifest" href="documents/site.webmanifest">
+  <title>Contactanos - The SoundGarden</title>
+</head>
+
+<header>
+  <!-- ===============================================
+     SALUDO JS PARA LOS USUARIOS DE THE SOUNDGARDEN
+==================================================== -->
+
+<script defer>
+document.addEventListener("DOMContentLoaded", () => {
+  const hora = new Date().getHours();
+  let saludo, colorFondo;
+
+  if (hora < 12) {
+    saludo = "☀️ ¡Buenos días, músico! Empieza tu día con el ritmo en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #ffafbd, #ffc3a0)";
+  } else if (hora < 19) {
+    saludo = " 🌵 ¡Buenas tardes! Descubre algunos instrumentos hechos con alma cuyabra.";
+    colorFondo = "linear-gradient(90deg, #89f7fe, #66a6ff)";
+  } else {
+    saludo = "🌙 ¡Buenas noches, artista! La inspiración no duerme en The SoundGarden.";
+    colorFondo = "linear-gradient(90deg, #2b5876, #4e4376)";
+  }
+
+  const saludoBanner = document.createElement("div");
+  saludoBanner.innerHTML = `<strong>${saludo}</strong>`;
+  saludoBanner.style.cssText = `
+    background: ${colorFondo};
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid rgba(255,255,255,0.2);
+    animation: aparecer 1.2s ease-out forwards;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  `;
+
+  document.body.prepend(saludoBanner);
+});
+
+// Animación de aparición suave
+const estiloAnimacion = document.createElement("style");
+estiloAnimacion.textContent = `
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(estiloAnimacion);
+</script>
+
+   <!-- =========================
+       ENCABEZADO PRINCIPAL
+  ========================== -->
+  <header class="encabezado-sitio">
+    <div class="header-contenedor">
+
+      <!-- LOGO -->
+      <div class="logo-nombre">
+        <a href="index.html" aria-label="Ir al inicio">
+          <img src="img/favicon-96x96.png" alt="Logo de The SoundGarden" class="logo" loading="lazy">
+        </a>
+      </div>
+
+     <!-- NAVEGACIÓN -->
+      <nav class="navbarra" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="testimoniales.html">Testimonios</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="Nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="Login.html">Acceder</a></li>
+        </ul>
+      </nav>
+     <!-- =========================
+     CARRITO, BÚSQUEDA Y CONFIGURACIÓN
+========================= -->
+<div class="acciones-usuario">
+  
+  <!-- BÚSQUEDA -->
+  <form id="form-buscar" role="search">
+    <input 
+      type="search" 
+      id="buscar-producto"
+      placeholder="Buscar productos..." 
+      aria-label="Buscar productos" 
+    />
+    <button type="submit" aria-label="Buscar">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+
+<!-- CARRITO -->
+<a href="pedidos.html" aria-label="Ver carrito">
+  <button id="btn-carrito">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+</a>
+
+<!-- === MENÚ DE CONFIGURACIÓN (versión optimizada y funcional) === -->
+<div class="config-menu">
+  <button id="btn-config" aria-label="Abrir configuración" aria-expanded="false">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div id="menu-config" class="menu-oculto">
+    <ul>
+      <li><a href="login.html"> 🗝️ Iniciar Sesión</a></li>
+      <li><a href="php/administrar.html">📠 Administrar</a></li>
+      <li><a href="contacto.html">🧭 Ayuda </a></li>
+      <li><a href="cuenta.html">🎯 Mi Cuenta</a></li>
+      <li><a href="Cerrarlogin.html">🚪 Salir</a></li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  
+    /* ========================================================
+  
+        FONDO QUE VA A CUBRIR TODA LA PANTALLA DEL SITIO WEB
+
+===============================================================*/
+
+body {
+  background: url("img/fondonegro.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed; /* esto va a hacer que se baje suave a hacer scroll */
+}
+</style>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: url("img/fondonegro.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+* {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+#banner, .banner, .topbar {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+header, .navbar, nav {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  top: 0;
+}
+
+header p, header h1, .banner p, .banner h1 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+</style>
+
+<style>
+/* === CONTENEDOR GENERAL === */
+.config-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  z-index: 9999;
+}
+
+/* === BOTÓN === */
+#btn-config {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#btn-config:hover {
+  transform: rotate(45deg);
+  color: #f4c542;
+}
+
+/* === MENÚ === */
+#menu-config {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostrar menú */
+#menu-config.menu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* === ITEMS === */
+#menu-config ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-config li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+
+#menu-config li:last-child {
+  border-bottom: none;
+}
+
+#menu-config a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+#menu-config a:hover {
+  color: #ff6600;
+}
+</style>
+
+<script>
+  
+// === MENÚ DE CONFIGURACIÓN ===
+const btnConfig = document.getElementById('btn-config');
+const menuConfig = document.getElementById('menu-config');
+
+btnConfig.addEventListener('click', () => {
+  const visible = menuConfig.classList.toggle('menu-visible');
+  btnConfig.setAttribute('aria-expanded', visible);
+});
+
+// Cierra el menú si se hace clic fuera
+window.addEventListener('click', (e) => {
+  if (!menuConfig.contains(e.target) && !btnConfig.contains(e.target)) {
+    menuConfig.classList.remove('menu-visible');
+    btnConfig.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+
+</header>
+<body>
+<main id="contenido-principal">
+
+<!-- ===============================
+     SECCIÓN DE CONTACTO - THE SOUNDGARDEN
+================================ -->
+<main class="contacto-main container my-5">
+  <section class="text-center mb-5"> <h1 class="titulo-contacto">¿Necesitas contactarnos?</h1> 
+  <p class="subtitulo-contacto">En <strong>The SoundGarden</strong> estamos aquí para ti. Escríbenos, llámanos o déjanos tus datos, y te responderemos lo antes posible.
+  </p> <img src="img/kjnk.jpg" alt="Atención al cliente" class="img-fluid my-3 sombra-img">
+
+  <!-- Información de contacto -->
+  <section class="info-contacto bg-light p-4 rounded shadow-sm mb-5">
+    <h2 class="text-center mb-4"><i class="fas fa-headset"></i> Vías de contacto</h2>
+
+    <div class="text-left datos-contacto">
+      <p><b>📞 Teléfono:</b> 321 353 2665</p>
+      <p><b>📘 Facebook:</b> @TheSoundGardenCOL</p>
+      <p><b>📸 Instagram:</b> @TheSoundGardenChannel</p>
+      <p><b>📧 Correo:</b> 
+        <a href="mailto:TheSoundGardenCOL@gmail.com" class="correo-link">
+          TheSoundGardenCOL@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <!-- Horarios -->
+    <div class="horarios mt-4">
+      <h3 class="text-center"><i class="fas fa-clock"></i> Horarios de atención</h3>
+      <table class="tabla-horarios mx-auto mt-3">
+        <tr><td><b>Lunes a Viernes:</b></td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td><b>Sábados:</b></td><td>8:00 AM – 7:00 PM</td></tr>
+        <tr><td><b>Domingos y Festivos:</b></td><td>10:00 AM – 5:00 PM</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section class="formulario-contacto my-5">
+    <h2 class="text-center mb-4">📬 Envíanos un mensaje</h2>
+    <form action="guardar.php" method="post" class="formulario bg-white p-5 rounded shadow-lg">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input type="number" name="ID_contactenos" placeholder="Documento de identidad" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <input type="text" name="Nombre" placeholder="Nombres" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <input type="text" name="apellidos" placeholder="Apellidos" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <input type="number" name="telefono" placeholder="Teléfono" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <input type="email" name="correo" placeholder="Correo electrónico" class="form-control" required>
+        </div>
+        <div class="col-12">
+          <textarea name="comentarios" placeholder="Cuéntanos tu experiencia o consulta" class="form-control" rows="4" required></textarea>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-enviar">
+          <i class="fas fa-paper-plane"></i> Enviar mensaje
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Mapa -->
+  <section class="mapa my-5 text-center">
+    <h2 class="mb-4"><i class="fas fa-map-marked-alt"></i> Encuéntranos</h2>
+    <div class="mapa-contenedor rounded shadow-sm overflow-hidden">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3977.3137088468625!2d-75.67161933971236!3d4.537427146099061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1728264512441!5m2!1ses-419!2sco"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+</main>
+
+
+<br><br><br>
+<!-- Banner de Cookies -->
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <p>
+    ¡Hola! 🍪 Usamos cookies para mejorar tu experiencia. 
+    <a href="Legal.html">Más información</a>
+  </p>
+  <button id="accept-cookies">Aceptar</button>
+</div>
+<!-- Botón Volver Ar
+ riba (solo imagen) -->
+<button id="btn-arriba" aria-label="Volver arriba" style="display:none;">
+  <img src="img/icono.webp" alt="Subir" width="60" height="60">
+</button>
+
+<style>
+  /* ====== BOTÓN VOLVER ARRIBA — SOLO IMAGEN ====== */
+  #btn-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* oculto por defecto */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  #btn-arriba img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  #btn-arriba:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const btnArriba = document.getElementById("btn-arriba");
+
+  // Mostrar el botón al bajar más de 200px
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+      btnArriba.style.display = "block";
+    } else {
+      btnArriba.style.display = "none";
+    }
+  });
+
+  // Al hacer clic, volver suavemente arriba
+  btnArriba.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+// ====== BANNER DE COOKIES ======
+const cookieBanner = document.getElementById("cookie-banner");
+const aceptarBtn = document.getElementById("accept-cookies");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("cookiesAceptadas")) {
+    cookieBanner.style.display = "flex";
+  }
+});
+
+aceptarBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesAceptadas", "true");
+  cookieBanner.style.display = "none";
+});
+</script>
+
+
+
+<!-- =====================================================
+     BANNER DE CONFIANZA - THE SOUNDGARDEN
+===================================================== -->
+<section class="banner-confianza">
+  <div class="contenedor-confianza">
+    <div class="item-confianza">
+      <i class="fas fa-shield-alt icono-confianza"></i>
+      <span>Garantía 1 año</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-lock icono-confianza"></i>
+      <span>Pago seguro</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-flag icono-confianza"></i>
+      <span>Hecho en Colombia</span>
+    </div>
+    <div class="item-confianza">
+      <i class="fas fa-heart icono-confianza"></i>
+      <span>Hecho con Amor</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<style>
+
+/* =====================================================
+   BANNER DE CONFIANZA - THE SOUNDGARDEN
+===================================================== */
+.banner-confianza {
+  background: #0d0d0d; /* Negro profundo */
+  color: #f8d37b; /* Dorado suave */
+  padding: 2rem 1rem;
+  border-top: 2px solid #c46b18; /* Naranja cálido */
+  border-bottom: 2px solid #7c1b16; /* Rojo acento */
+  text-align: center;
+}
+
+.contenedor-confianza {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.item-confianza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.item-confianza:hover {
+  transform: translateY(-5px);
+  color: #ffb400; /* Dorado más brillante al pasar el mouse */
+}
+
+.icono-confianza {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ff9a00; /* Naranja principal */
+}
+</style>
+
+<!-- =========================
+   PIE DE PÁGINA 
+========================= -->
+
+<footer class="footer">
+  <div class="contenedor-footer">
+    
+    <!-- Columna 1: Identidad -->
+    <div class="columna">
+      <h3>The SoundGarden</h3>
+      <p>🎶 Tienda, estudio y espacio creativo para músicos. Inspiramos la escena sonora del Quindío con pasión y calidad 100% cuyabra.</p>
+      <p>Guitarras, bajos, teclados, audio profesional y mucho más.</p>
+    </div>
+
+    <!-- Columna 2: Servicios -->
+    <div class="columna">
+      <h3>Servicios y Otros</h3>
+      <ul class="lista-footer">
+        <li><a href="productos.html">Venta de Instrumentos</a></li>
+        <li><a href="Servicios.html">Mantenimiento y Reparación</a></li>
+        <li><a href="Servicios.html">Clases y Talleres Musicales</a></li>
+        <li><a href="eventos.html">Sonido para Eventos</a></li>
+        <li><a href="Servicios.html">Producción y Grabación</a></li>
+        <li><a href="Blog.html">Blogs</a></li>
+        <li><a href="Banda.html">Nuestra Semilla: Nuestra Banda</a></li>
+        <li><a href="Horarios.html">Nuestro horarios</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Soporte -->
+    <div class="columna">
+      <h3>Soporte y Ayuda</h3>
+      <ul class="lista-footer">
+        <li><a href="faq.html">Preguntas Frecuentes</a></li>
+        <li><a href="contacto.html">Contáctanos</a></li>
+        <li><a href="soporte.html">¿Problema con su compra?</a></li>
+        <li><a href="garantia.html">Garantías y Devoluciones</a></li>
+        <li><a href="Envios.html">Envíos Nacionales</a></li>
+        <li><a href="foro.html">Nuestro Foro</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Cuenta -->
+    <div class="columna">
+      <h3>Mi Cuenta</h3>
+      <ul class="lista-footer">
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="Login.html">Registrarse</a></li>
+        <li><a href="cuenta.html">Mi Perfil</a></li>
+        <li><a href="CerrarLogin.html">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna  5: Sección Información de Contacto -->
+                <div class="seccion-footer">
+                    <h3>⚡ Información de Contacto 🔥</h3>
+                    <br>
+                    <p><i class="fas fa-map-marker-alt"></i>Calle 54N, MZ 24, Urb. Bailadores - Armenia, Quindío - Colombia</p>
+                    <p><i class="fas fa-phone"></i> +57 321 353 2665
+                    <br>
+                    <i class="fas fa-mobile-alt"></i> +57 310 456 7890</p>
+                    <p><i class="fas fa-envelope"></i>TheSoundGarden@proton.me</p>
+                    <i class="fas fa-globe"></i> www.TheSoundGarden.com</p>
+                    <p><i class="fas fa-clock"></i> De Lunes a Domingo
+                    7:00 AM - 7:00 PM</p>
+                    <a href="rss.xml" class="btn-rss" target="_blank" title="Suscribirse al canal RSS">
+        📡 Suscribirse a nuestro RSS 
+      </a>
+                </div>
+
+    <!-- Columna 6: Las Redes Sociales -->
+    <div class="columna">
+      <h3>Síguenos</h3>
+      <div class="redes-sociales">
+        <a href="https://www.facebook.com/NASA" target="_blank" title="Facebook The SoundGarden">
+          <img src="img/facebook.svg" alt="Facebook The SoundGarden">
+        </a>
+        <a href="https://x.com/Orisono728" target="_blank" title="X (Twitter)">
+          <img src="img/twitter.svg" alt="X The SoundGarden">
+        </a>
+        <a href="https://www.instagram.com/kilonova727/" target="_blank" title="Instagram The SoundGarden">
+          <img src="img/instagram-square.svg" alt="Instagram The SoundGarden">
+        </a>
+        <a href="https://www.youtube.com/@Orisono1" target="_blank" title="YouTube The SoundGarden">
+          <img src="img/youtube.svg" alt="YouTube The SoundGarden">
+        </a>
+        <a href="https://soundcloud.com/orisono727" target="_blank" title="soundcloud The SoundGarden">
+          <img src="img/soundcloud.svg" alt="soundcloud The SoundGarden">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formas de pago -->
+  <div class="pagos">
+    <h3>Medios de Pago</h3>
+    <div class="pagos-icons">
+      <img src="img/Tarjeta.png" alt="Visa">
+      <img src="img/Tarjeta2.png" alt="MasterCard">
+      <img src="img/Tarjeta3.png" alt="American Express">
+      <img src="img/Tarjeta4.png" alt="PayPal">
+      <img src="img/Tarjeta5.png" alt="Nequi">
+      <img src="img/Tarjeta6.png" alt="Daviplata">
+      <img src="img/Tarjeta7.png" alt="Bancolombia">
+      <img src="img/Tarjeta8.png" alt="PSE">
+    </div>
+  </div>
+
+  <!-- Información Legal -->
+  <div class="informacion-legal">
+    <ul>
+      <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+      <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+      <li><a href="TratamientoDeDatos.html">Política de Tratamiento de Datos</a></li>
+    </ul>
+    <p>© 2025 <strong>The SoundGarden</strong>. Todos los derechos reservados.  
+      Diseñado con 💛💙❤️ - desde Armenia, Quindío.</p>
+    <p class="powered-by">Powered by <span>The SoundGarden Team 🐧</span></p>
+  </div>
+  
+<!-- =========================
+   SCRIPT DINÁMICO - SOUNDGARDEN VIVO
+========================= -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hora = new Date().getHours();
+    let mensaje = "";
+    let bgColor = "";
+    let textColor = "";
+    let emoji = "";
+
+    // Mensajes por hora (más humanos, poéticos y musicales)
+    if (hora < 6) {
+      mensaje = "🌅 Aún canta la madrugada... deja que tus ideas despierten contigo.";
+      bgColor = "linear-gradient(90deg, #0d1b2a, #1b263b)";
+      textColor = "#8dd9ff";
+    } else if (hora < 12) {
+      mensaje = "☀️ ¡Buenos días, músico madrugador! Hoy el ritmo lo marcas tú.";
+      bgColor = "linear-gradient(90deg, #f7c948, #f8e16c)";
+      textColor = "#2d2d2d";
+    } else if (hora < 18) {
+      mensaje = "🎶 ¡Buenas tardes! Inspírate y crea algo que haga vibrar al mundo.";
+      bgColor = "linear-gradient(90deg, #f37335, #fdc830)";
+      textColor = "#fffdf5";
+    } else if (hora < 21) {
+      mensaje = "🌇 ¡Atardece! Deja que tu música sea el eco dorado del día.";
+      bgColor = "linear-gradient(90deg, #fc466b, #3f5efb)";
+      textColor = "#f7f7f7";
+    } else {
+      mensaje = "🌙 ¡Buenas noches, alma sonora! No olvides soñar en acordes y silencios.";
+      bgColor = "linear-gradient(90deg, #141e30, #243b55)";
+      textColor = "#c0eaff";
+    }
+
+    // Crear el elemento dinámico
+    const saludo = document.createElement("div");
+    saludo.classList.add("saludo-dinamico");
+    saludo.textContent = mensaje;
+    saludo.style.background = bgColor;
+    saludo.style.color = textColor;
+
+    // Insertar antes del texto legal
+    const infoLegal = document.querySelector(".informacion-legal");
+    if (infoLegal) {
+      infoLegal.prepend(saludo);
+    }
+  });
+</script>
+
+<style>
+.saludo-dinamico {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: aparecerSaludo 1.2s ease-out;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(3px);
+  position: relative;
+  z-index: 5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saludo-dinamico:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Animación de entrada suave */
+@keyframes aparecerSaludo {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</footer>
+
+<!-- =========================
+     SCRIPTS Y FUNCIONALIDAD
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/busqueda.js"></script>
+<!-- Librería SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/ui-helpers.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Administrar - The SoundGarden</title>
+  <link rel="icon" href="../img/favicon-96x96.png" type="image/x-icon">
+
+  <!-- SEO -->
+  <meta name="description" content="The SoundGarden: tienda musical quindiana. Instrumentos, pasión y calidad. Apoyamos el arte colombiano.">
+  <meta name="author" content="The SoundGarden Team">
+  <meta name="keywords" content="música, tienda musical, instrumentos, bajos, guitarras, servicios, Armenia, Quindío, Colombia">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Redes sociales -->
+  <meta property="og:title" content="The SoundGarden - Tienda musical quindiana">
+  <meta property="og:description" content="Instrumentos, pasión y calidad 100% cuyabra. ¡Inspira la escena musical colombiana!">
+  <meta property="og:image" content="../img/og-preview.jpg">
+  <meta property="og:url" content="https://thesoundgarden.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fuentes y estilos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Animaciones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Normalización -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css">
+
+  <!-- Preload recursos importantes -->
+  <link rel="preload" as="image" href="../img/favicon.ico">
+  <link rel="preload" as="image" href="../img/fondo.jpg">
+  <link rel="preload" as="image" href="../img/Rueda2.png">
+  <link rel="preload" as="image" href="../img/linuxmint.svg">
+
+  <!-- =========================================================
+     FONDO DEL SITIO WEB
+========================================================== -->
+<style>
+  body {
+    background: url("../img/fondo.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-color: #000; 
+  }
+
+  @media (max-width: 768px) {
+    body {
+      background-attachment: scroll;
+    }
+  }
+
+</style>
+</head>
+
+  <!-- Pantalla de carga -->
+  <div class="loader">
+    <div class="spinner"></div>
+    <p>Cargando...</p>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelector(".loader").style.display = "none";
+    });
+  </script>
+</head>
+
+<header>
+
+  <!-- ⚙️ Menú de usuario-->
+<section>
+  <div class="config-menu">
+    <button id="btn-config"><i class="fas fa-cog"></i></button>
+    <div id="menu-config" class="menu-oculto">
+      <ul>
+        <li>
+          <select id="theme-mode">
+            <option value="auto">Automático 🎭</option>
+            <option value="light">Claro 🌞</option>
+            <option value="dark">Oscuro 🌚</option>
+          </select>
+        </li>
+        <li><a href="#">Accesibilidad 🛠</a></li>
+        <li><a href="../Login.html">Iniciar sesión 💰</a></li>
+        <li><a href="../index.html">Volver ⍈</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script defer>
+  const btnConfig = document.getElementById("btn-config");
+  const menuConfig = document.getElementById("menu-config");
+
+  btnConfig.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuConfig.classList.toggle("activo");
+    const isActive = menuConfig.classList.contains("activo");
+    menuConfig.setAttribute("aria-hidden", !isActive);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menuConfig.contains(e.target) && e.target !== btnConfig) {
+      menuConfig.classList.remove("activo");
+      menuConfig.setAttribute("aria-hidden", "true");
+    }
+  });
+</script>
+</header>
+
+<body>
+<!-- ==========================================================
+   ╔══════════════════════════════════════════════════════╗
+   ║              CONTENIDO PRINCIPAL DEL SITIO           ║
+   ╚══════════════════════════════════════════════════════╝
+========================================================== -->
+
+  <main class="admin-login">
+    <h1 class="titulo" title="Bienvenido al panel de administración de The SoundGarden">
+      🛠 Administrar <span>The SoundGarden</span> ⚒
+    </h1>
+
+    <section class="login-container">
+      <img src="../img/favicon-96x96.png" alt="Icono de usuario" class="img-user">
+
+      <form action="validar.php" method="POST" autocomplete="off">
+        <input type="hidden" name="id_usuario">
+
+        <label for="nom_usuario" class="visually-hidden">Usuario</label>
+        <p>
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="nom_usuario" name="nom_usuario" placeholder="Ingrese su usuario" required>
+        </p>
+
+        <label for="password" class="visually-hidden">Contraseña</label>
+        <p>
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+        </p>
+
+        <p class="block">
+          <button type="submit" class="btn-login">Ingresar</button>
+        </p>
+      </form>
+    </section>
+
+    <footer class="powered-by" title="Esta página web fue creada en parte con GNU/Linux">
+      🐧 <strong>Powered by <span>GNU/Linux</span></strong>
+      <img src="../img/linuxmint.svg" height="20" width="32.5" alt="Logo de Linux mint">
+    </footer>
+  </main>
+
+
+<style>
+ /* ===============================================
+   LOGIN ADMIN - THE SOUNDGARDEN (Minimalista + Fondo personalizado)
+   =============================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+/* Fondo: la imagen la controlas desde el HTML */
+body {
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Contenedor general */
+.admin-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(6px); /* leve desenfoque para legibilidad */
+  padding: 40px 30px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5); /* sutil transparencia */
+}
+
+/* Título */
+.titulo {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: orange;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.titulo span {
+  color: #ffd280;
+}
+
+/* Caja del login */
+.login-container {
+  width: 310px;
+  text-align: center;
+}
+
+/* Imagen de usuario */
+.img-user {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid orange;
+  margin-bottom: 20px;
+  object-fit: cover;
+  background-color: #00000090;
+}
+
+/* Campos */
+.login-container p {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.login-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: orange;
+  font-size: 1rem;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px 10px 10px 32px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.login-container input:focus {
+  border-color: orange;
+  background-color: rgba(0, 0, 0, 0.8);
+  outline: none;
+}
+
+/* Botón */
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: orange;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #ff9b00;
+}
+
+/* Footer */
+.powered-by {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.powered-by span {
+  color: orange;
+  font-weight: 600;
+}
+
+.powered-by img {
+  height: 16px;
+  width: auto;
+}
+
+/* Responsivo */
+@media (max-width: 450px) {
+  .admin-login {
+    padding: 30px 20px;
+  }
+  .titulo {
+    font-size: 1.5rem;
+  }
+}
+/* ======= Banner de advertencia ======= */
+.cuidado-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 0, 0, 0.9); /* más suave y transparente */
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+  font-family: "Poppins", sans-serif;
+  backdrop-filter: blur(6px); /* toque moderno */
+}
+
+.cuidado-banner p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.botones-cuidado {
+  display: flex;
+  gap: 8px;
+}
+
+.cuidado-banner button {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.cuidado-banner button:hover {
+  background: #f5d0c1;
+}
+
+/* ======= Encabezado ======= */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.85); /* semitransparente para ver fondo */
+  color: #fff;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px);
+}
+
+/* ======= Menú de configuración ======= */
+.config-menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+
+/* Botón principal */
+#btn-config {
+  background: #222;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+
+#btn-config:hover {
+  transform: scale(1.1);
+  background: #333;
+}
+
+/* Menú desplegable */
+#menu-config {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 8px;
+  padding: 8px 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  display: none;
+  backdrop-filter: blur(5px);
+}
+
+/* Lista y enlaces */
+#menu-config ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu-config li {
+  padding: 6px 14px;
+}
+
+#menu-config a {
+  color: #ccc;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+#menu-config a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+
+/* ======= Selector de tema ======= */
+#theme-mode {
+  width: 100%;
+  background: rgba(110, 104, 97, 0.9);
+  color: #fff;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#theme-mode:hover {
+  background: #ff7b00;
+  transform: scale(1.03);
+}
+
+/* Mostrar menú cuando está activo */
+#menu-config.activo {
+  display: block;
+}
+
+/* ======= Hecho en GNU/Linux ======= */
+.powered-by {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #e0e0e0;
+  margin-top: 12px;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+.powered-by span {
+  color: #ff7b00;
+  font-weight: 600;
+}
+
+  .cuidado-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #b00020;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .cuidado-banner p {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .botones-cuidado {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cuidado-banner button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+  }
+
+  .cuidado-banner button:hover {
+    background-color: #ffe1cc;
+    transform: translateY(-1px);
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+</style>
+
+<!-- HTML -->
+<div id="cuidado-banner" class="cuidado-banner" role="alert">
+  <p>⚠️ Acceso restringido: solo personal autorizado ⚠️</p>
+
+  <div class="botones-cuidado">
+    <button id="cuidado-volver" type="button">Volver</button>
+    <button id="cuidado-autorizado" type="button">Soy personal autorizado</button>
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+  const banner = document.getElementById('cuidado-banner');
+  const btnVolver = document.getElementById('cuidado-volver');
+  const btnAutorizado = document.getElementById('cuidado-autorizado');
+
+  // Ocultar si ya se aceptó
+  if (localStorage.getItem('cuidadoAceptado') === 'true') {
+    banner.style.display = 'none';
+  }
+
+  // Botón "Volver"
+  btnVolver.addEventListener('click', () => {
+    window.location.href = "../index.html";
+  });
+
+  // Botón "Soy personal autorizado"
+  btnAutorizado.addEventListener('click', () => {
+  localStorage.setItem('cuidadoAceptado', 'true');
+  window.location.href = "login.php";
+
+  });
+</script>
+
+</body>
+</html>
